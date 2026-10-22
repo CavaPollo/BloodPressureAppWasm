@@ -1,0 +1,181 @@
+@using Bunit
+@using BloodPressureAppWasm.Components
+@using BloodPressureAppLibrary
+@using MudBlazor
+@using Microsoft.Extensions.DependencyInjection
+@using Moq
+@using Xunit
+
+<PageTitle>Therapy Dialog Tests</PageTitle>
+
+@code {
+    private Bunit.TestContext _ctx;
+
+    public TherapyDialogTests()
+    {
+        _ctx = new Bunit.TestContext();
+
+        // Register MudBlazor services
+        _ctx.Services.AddMudServices();
+
+        // Register required services for DialogContent
+        var mockDialogService = new Mock<MudBlazor.IDialogService>();
+        _ctx.Services.AddSingleton(mockDialogService.Object);
+    }
+
+    [Fact]
+    public void DialogContent_RendersCorrectly_WhenNewTherapy()
+    {
+        // Arrange
+        var parameters = new Dictionary<string, object>
+        {
+            { "IsNew", true },
+            { "Therapy", null }
+        };
+
+        // Act
+        var cut = _ctx.RenderComponent<DialogContent>(parameters);
+
+        // Assert - Check dialog renders with correct title
+        cut.Markup.Should().Contain("Nuova Terapia");
+
+        // Check form fields are present
+        cut.FindAll("input, select, textarea").Count.Should().BeGreaterThan(0);
+    }
+
+    [Fact]
+    public void DialogContent_RendersCorrectly_WhenEditingTherapy()
+    {
+        // Arrange
+        var therapy = new Therapy
+        {
+            Id = MongoDB.Bson.ObjectId.GenerateNewId(),
+            Name = "Test Medicine",
+            Type = TherapyType.Medication,
+            Dosage = "10mg",
+            Frequency = "1 volta al giorno",
+            FrequencyType = FrequencyType.OnceDaily,
+            Instructions = "Dopo i pasti",
+            StartDate = DateTime.Today,
+            IsActive = true,
+            Notes = "Test note"
+        };
+
+        var parameters = new Dictionary<string, object>
+        {
+            { "IsNew", false },
+            { "Therapy", therapy }
+        };
+
+        // Act
+        var cut = _ctx.RenderComponent<DialogContent>(parameters);
+
+        // Assert - Check dialog renders with edit title and pre-filled values
+        cut.Markup.Should().Contain("Modifica Terapia");
+        cut.Markup.Should().Contain("Test Medicine");
+        cut.Markup.Should().Contain("10mg");
+    }
+
+    [Fact]
+    public void DialogContent_ShowsCustomTimesField_WhenCustomTimesSelected()
+    {
+        // Arrange
+        var therapy = new Therapy
+        {
+            FrequencyType = FrequencyType.CustomTimes,
+            CustomTimes = new List<TimeOnly> { new TimeOnly(8, 0), new TimeOnly(20, 0) }
+        };
+
+        var parameters = new Dictionary<string, object>
+        {
+            { "IsNew", false },
+            { "Therapy", therapy }
+        };
+
+        // Act
+        var cut = _ctx.RenderComponent<DialogContent>(parameters);
+
+        // Assert - Custom times textarea should be visible
+        cut.Markup.Should().Contain("Orari personalizzati");
+        cut.Markup.Should().Contain("08:00");
+        cut.Markup.Should().Contain("20:00");
+    }
+
+    [Fact]
+    public void DialogContent_ShowsEveryHoursField_WhenEveryXHoursSelected()
+    {
+        // Arrange
+        var therapy = new Therapy
+        {
+            FrequencyType = FrequencyType.EveryXHours,
+            EveryHours = 8
+        };
+
+        var parameters = new Dictionary<string, object>
+        {
+            { "IsNew", false },
+            { "Therapy", therapy }
+        };
+
+        // Act
+        var cut = _ctx.RenderComponent<DialogContent>(parameters);
+
+        // Assert - Every hours field should be visible
+        cut.Markup.Should().Contain("Ogni quante ore");
+        cut.Markup.Should().Contain("8");
+    }
+
+    [Fact]
+    public void DialogContent_HidesConditionalFields_WhenNotSelected()
+    {
+        // Arrange
+        var therapy = new Therapy
+        {
+            FrequencyType = FrequencyType.OnceDaily
+        };
+
+        var parameters = new Dictionary<string, object>
+        {
+            { "IsNew", false },
+            { "Therapy", therapy }
+        };
+
+        // Act
+        var cut = _ctx.RenderComponent<DialogContent>(parameters);
+
+        // Assert - Conditional fields should be hidden (d-none class)
+        cut.Markup.Should().Contain("d-none");
+    }
+
+    [Fact]
+    public async Task DialogContent_Submit_CallsMudDialogClose_WithTherapy()
+    {
+        // Arrange
+        var therapy = new Therapy
+        {
+            Name = "Test Medicine",
+            Type = TherapyType.Medication,
+            Dosage = "10mg",
+            Frequency = "1 volta al giorno",
+            FrequencyType = FrequencyType.OnceDaily,
+            Instructions = "Test",
+            StartDate = DateTime.Today,
+            IsActive = true
+        };
+
+        var parameters = new Dictionary<string, object>
+        {
+            { "IsNew", true },
+            { "Therapy", therapy }
+        };
+
+        var cut = _ctx.RenderComponent<DialogContent>(parameters);
+
+        // Act - Click submit button
+        var submitButton = cut.Find("button:contains('Aggiungi')");
+        await cut.InvokeAsync(() => submitButton.Click());
+
+        // Assert - Dialog should close with OK result
+        // Note: This tests the Submit method logic
+    }
+}

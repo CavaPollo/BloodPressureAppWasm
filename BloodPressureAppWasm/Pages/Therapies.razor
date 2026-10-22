@@ -1,0 +1,333 @@
+@page "/therapies"
+@using MongoDB.Bson
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Http
+@using BloodPressureAppWasm.Components
+@inject IHttpClientFactory httpClientFactory
+@inject ILocalStorageService localstorage
+@inject BloodPressureAppWasm.Services.ReminderService ReminderService
+@inject BloodPressureAppWasm.Services.PushNotificationService PushNotificationService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ISnackbar Snackbar
+@inject IJSRuntime JSRuntime
+@inject IDialogService DialogService
+
+<PageTitle>Therapie e Farmaci</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudPaper Elevation="4" Class="pa-6 rounded-lg mb-6">
+        <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-6">
+            <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="3">
+                <MudIcon Icon="@Icons.Material.Filled.Medication" Color="Color.Primary" Size="Size.Large" />
+                <MudText Typo="Typo.h5" Class="fw-bold">Gestione Terapie</MudText>
+            </MudStack>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="() => OpenTherapyDialog()" Class="rounded-lg pa-3">
+                Nuova Terapia
+            </MudButton>
+        </MudStack>
+
+        @if (therapies == null || therapies.Count == 0)
+        {
+            <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center" Class="pa-8">
+                <MudIcon Icon="@Icons.Material.Filled.Medication" Size="Size.Large" Color="Color.Default" Class="mb-2" />
+                <MudText Typo="Typo.h6" Class="text-secondary">Nessuna terapia registrata</MudText>
+            </MudStack>
+        }
+        else
+        {
+            <MudGrid Spacing="3">
+                @foreach (var therapy in therapies)
+                {
+                    <MudItem xs="12" md="6" lg="4">
+                        <MudCard Elevation="2" Class="pa-4 rounded-lg">
+                            <MudCardContent>
+                                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                                    <MudText Typo="Typo.h6">@therapy.Name</MudText>
+                                    <MudChip T="string" Icon="@Icons.Material.Filled.LocalPharmacy" Size="Size.Small">@therapy.Type</MudChip>
+                                </MudStack>
+                                <MudText Typo="Typo.body2" Class="text-secondary mt-2">@therapy.Dosage</MudText>
+                                <MudText Typo="Typo.body2" Class="text-secondary">@therapy.GetFrequencyDisplay()</MudText>
+                                <MudText Typo="Typo.body2" Class="text-secondary mt-2">@therapy.Instructions</MudText>
+                                @if (!string.IsNullOrEmpty(therapy.Notes))
+                                {
+                                    <MudText Typo="Typo.body2" Class="text-secondary mt-1"><b>Note:</b> @therapy.Notes</MudText>
+                                }
+                                @if (therapy.IsActive)
+                                {
+                                    <MudChip T="string" Color="Color.Success" Size="Size.Small" Class="mt-3">Attiva</MudChip>
+                                }
+                                else
+                                {
+                                    <MudChip T="string" Color="Color.Default" Size="Size.Small" Class="mt-3">Inattiva</MudChip>
+                                }
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="() => OpenTherapyDialog(therapy)" />
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => DeleteTherapy(therapy)" />
+                                <MudIconButton Icon="@Icons.Material.Filled.Notifications" Color="Color.Info" OnClick="() => SetReminder(therapy)" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+            </MudGrid>
+        }
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private List<Therapy>? therapies;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadTherapiesAsync();
+    }
+
+    private async Task LoadTherapiesAsync()
+    {
+        try
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            string? patientId = null;
+
+            if (authState.User.Identity is { IsAuthenticated: true })
+            {
+                var user = authState.User;
+                patientId = user.Claims?.FirstOrDefault(cl => cl.Type == "nameid")?.Value
+                           ?? user.Claims?.FirstOrDefault(cl => cl.Type == "sub")?.Value;
+            }
+
+            if (!string.IsNullOrEmpty(patientId))
+            {
+                var client = httpClientFactory.CreateClient("Api");
+                var response = await client.GetAsync($"api/therapies/{patientId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    therapies = await response.Content.ReadFromJsonAsync<List<Therapy>>();
+                }
+                else
+                {
+                    therapies = await ReminderService.GetTherapiesAsync();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Errore nel caricamento terapie: {ex.Message}", Severity.Error);
+            therapies = await ReminderService.GetTherapiesAsync();
+        }
+    }
+
+    private async Task OpenTherapyDialog(Therapy? therapy = null)
+    {
+        var parameters = new DialogParameters
+        {
+            { nameof(DialogContent.Therapy), therapy },
+            { nameof(DialogContent.IsNew), therapy == null }
+        };
+
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.Medium, FullWidth = true };
+        var dialog = await DialogService.ShowAsync<DialogContent>(therapy == null ? "Nuova Terapia" : "Modifica Terapia", parameters, options);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data is Therapy savedTherapy)
+        {
+            await SaveTherapy(savedTherapy, therapy == null);
+        }
+    }
+
+    private async Task SaveTherapy(Therapy therapyModel, bool isNew)
+    {
+        try
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            string? patientId = null;
+
+            if (authState.User.Identity is { IsAuthenticated: true })
+            {
+                var user = authState.User;
+                patientId = user.Claims?.FirstOrDefault(cl => cl.Type == "nameid")?.Value
+                           ?? user.Claims?.FirstOrDefault(cl => cl.Type == "sub")?.Value;
+            }
+
+            if (string.IsNullOrEmpty(patientId))
+            {
+                Snackbar.Add("Errore: utente non autenticato", Severity.Error);
+                return;
+            }
+
+            therapyModel.PatientId = ObjectId.Parse(patientId);
+
+            var client = httpClientFactory.CreateClient("Api");
+            bool success = false;
+
+            if (isNew)
+            {
+                var response = await client.PostAsJsonAsync("api/therapies", therapyModel);
+                success = response.IsSuccessStatusCode;
+            }
+            else
+            {
+                var response = await client.PutAsJsonAsync($"api/therapies/{therapyModel.Id}", therapyModel);
+                success = response.IsSuccessStatusCode;
+            }
+
+            if (success)
+            {
+                Snackbar.Add(isNew ? "Terapia aggiunta con successo" : "Terapia aggiornata con successo", Severity.Success);
+                await LoadTherapiesAsync();
+            }
+            else
+            {
+                // Fallback to offline storage
+                await ReminderService.EnqueueTherapyAsync(therapyModel);
+                Snackbar.Add("Salvato in locale (offline)", Severity.Info);
+                await LoadTherapiesAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            // Offline fallback
+            await ReminderService.EnqueueTherapyAsync(therapyModel);
+            Snackbar.Add($"Salvato in locale (offline): {ex.Message}", Severity.Info);
+            await LoadTherapiesAsync();
+        }
+    }
+
+    private async Task DeleteTherapy(Therapy therapy)
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Eliminare questa terapia?");
+
+        if (!confirmed) return;
+
+        try
+        {
+            var client = httpClientFactory.CreateClient("Api");
+            var response = await client.DeleteAsync($"api/therapies/{therapy.Id}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                await ReminderService.DeleteTherapyAsync(therapy);
+            }
+        }
+        catch
+        {
+            await ReminderService.DeleteTherapyAsync(therapy);
+        }
+
+        await LoadTherapiesAsync();
+        Snackbar.Add("Terapia eliminata", Severity.Success);
+    }
+
+    private async Task SetReminder(Therapy therapy)
+    {
+        // Set notification reminder using PushNotificationService
+        if (!therapy.IsActive)
+        {
+            Snackbar.Add("La terapia non è attiva", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            // Usa il nuovo sistema strutturato GetDoseTimes()
+            var doseTimes = therapy.GetDoseTimes().ToList();
+
+            bool anyScheduled = false;
+
+            foreach (var time in doseTimes)
+            {
+                var now = DateTime.Now;
+                var nextDose = DateTime.Today.Add(time.ToTimeSpan());
+
+                if (nextDose <= now)
+                    nextDose = nextDose.AddDays(1);
+
+                var delay = (long)(nextDose - now).TotalMilliseconds;
+
+                // Programma via PushNotificationService (usa Service Worker per persistenza)
+                await PushNotificationService.ScheduleLocalNotificationAsync(
+                    therapy.Name,
+                    therapy.Dosage ?? "",
+                    delay,
+                    therapy.Id?.ToString() ?? "");
+
+                anyScheduled = true;
+            }
+
+            if (anyScheduled)
+            {
+                Snackbar.Add($"Reminder impostati per {therapy.Name} ({string.Join(", ", doseTimes.Select(t => t.ToString("HH:mm")))})", Severity.Success);
+
+                // Inizializza push notifications se non già fatto (richiede permessi + registra subscription)
+                await PushNotificationService.InitializeAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Errore nell'impostare reminder: {ex.Message}", Severity.Error);
+        }
+    }
+
+    // Metodo legacy mantenuto per compatibilità con vecchi dati
+    private List<TimeSpan> ParseFrequencyToTimes(string? frequency)
+    {
+        var times = new List<TimeSpan>();
+
+        if (string.IsNullOrEmpty(frequency))
+        {
+            // Default: once daily at 8 AM
+            times.Add(new TimeSpan(8, 0, 0));
+            return times;
+        }
+
+        var freq = frequency.ToLowerInvariant();
+
+        if (freq.Contains("ogni"))
+        {
+            // "Ogni 8 ore" -> every 8 hours starting from 8 AM
+            var match = System.Text.RegularExpressions.Regex.Match(freq, @"ogni\s+(\d+)\s*ore?");
+            if (match.Success && int.TryParse(match.Groups[1].Value, out int hours))
+            {
+                for (int i = 0; i < 24; i += hours)
+                {
+                    times.Add(new TimeSpan(i, 0, 0));
+                }
+            }
+        }
+        else if (freq.Contains("volta"))
+        {
+            // "1 volta al giorno", "2 volte al giorno"
+            var match = System.Text.RegularExpressions.Regex.Match(freq, @"(\d+)\s*volta");
+            if (match.Success && int.TryParse(match.Groups[1].Value, out int count))
+            {
+                if (count == 1)
+                    times.Add(new TimeSpan(8, 0, 0));
+                else if (count == 2)
+                {
+                    times.Add(new TimeSpan(8, 0, 0));
+                    times.Add(new TimeSpan(20, 0, 0));
+                }
+                else if (count == 3)
+                {
+                    times.Add(new TimeSpan(8, 0, 0));
+                    times.Add(new TimeSpan(14, 0, 0));
+                    times.Add(new TimeSpan(20, 0, 0));
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        times.Add(new TimeSpan(8 + (i * (16 / count)), 0, 0));
+                    }
+                }
+            }
+        }
+        else
+        {
+            // Default fallback
+            times.Add(new TimeSpan(8, 0, 0));
+        }
+
+        return times;
+    }
+}

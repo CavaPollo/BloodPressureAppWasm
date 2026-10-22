@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@inject ILocalStorageService localStorage
+@inject ProductionAuthStateProvider auth
+@inject NavigationManager Navigation
+<MudNavMenu>
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    <MudNavLink Href="/bloodpressure" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.MonitorHeart">Pressione</MudNavLink>
+    <MudNavLink Href="/therapies" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Medication">Terapie</MudNavLink>
+
+    <AuthorizeView Context="authState">
+        <Authorized>
+             <MudNavLink Href="/user" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Sharp.SupervisedUserCircle">
+                @if (authState.User?.Identity?.IsAuthenticated == true)
+                {
+                    @((authState.User.Identity?.Name) ?? String.Join(" , ", authState.User.Claims.Where(cl => cl.Type.Contains("_name")).Select(cl => cl.Value)))
+                }
+                else
+                {
+                    <span>Utente</span>
+                }
+            </MudNavLink>
+
+            <MudNavLink Href="#" Match="NavLinkMatch.All">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Logout" StartIcon="@Icons.Material.Filled.Logout">Logout</MudButton>
+            </MudNavLink>
+        </Authorized>
+        <NotAuthorized>
+            <MudNavLink Href="/login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.SupervisedUserCircle">Login</MudNavLink>
+        </NotAuthorized>
+    </AuthorizeView>
+</MudNavMenu>
+
+@code {
+    private async Task Logout()
+    {
+        try
+        {
+            await localStorage.RemoveItemAsync("authToken");
+        }
+        catch
+        {
+            // ignore
+        }
+
+        auth.Logout();
+        Navigation.NavigateTo("/", forceLoad: false);
+    }
+}
+

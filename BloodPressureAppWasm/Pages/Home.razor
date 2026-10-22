@@ -1,0 +1,161 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<PageTitle>Home - Blood Pressure Tracker</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4 mb-12">
+    <!-- Hero Section -->
+    <MudPaper Elevation="4" Class="pa-8 mb-8 rounded-lg" Style="background: linear-gradient(135deg, rgba(126,111,255,0.15) 0%, rgba(30,30,45,0.8) 100%); border: 1px solid rgba(126,111,255,0.2);">
+        <MudGrid AlignItems="Center">
+            <MudItem xs="12" md="7">
+                <MudStack Spacing="4">
+                    <MudChip T="string" Color="Color.Primary" Size="Size.Small" Icon="@Icons.Material.Filled.Favorite" Class="align-self-start">
+                        Salute & Benessere
+                    </MudChip>
+                    <MudText Typo="Typo.h3" Class="fw-bold">
+                        Monitora la tua <span style="color: #7e6fff;">Pressione Arteriosa</span>
+                    </MudText>
+                    <MudText Typo="Typo.body1" Class="text-secondary">
+                        Un'applicazione semplice, intuitiva e sicura per tenere traccia delle tue misurazioni di pressione sistolica, diastolica e battito cardiaco. Analizza l'andamento nel tempo ed esporta i report per il tuo medico.
+                    </MudText>
+                    <MudStack Row="true" Spacing="3" Class="mt-2">
+                        <AuthorizeView>
+                            <Authorized>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Href="/bloodpressure" StartIcon="@Icons.Material.Filled.MonitorHeart">
+                                    Vedi le mie Misurazioni
+                                </MudButton>
+                            </Authorized>
+                            <NotAuthorized>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Href="/login" StartIcon="@Icons.Material.Filled.Login">
+                                    Accedi all'App
+                                </MudButton>
+                                <MudButton Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Large" Href="/bloodpressure">
+                                    Vai alle Misurazioni
+                                </MudButton>
+                            </NotAuthorized>
+                        </AuthorizeView>
+                    </MudStack>
+                </MudStack>
+            </MudItem>
+
+            <!-- Hero Image -->
+            <MudItem xs="12" md="5">
+                <MudPaper Elevation="6" Class="overflow-hidden rounded-lg d-flex align-center justify-center" Style="min-height: 260px; border: 1px solid rgba(126,111,255,0.3);">
+                    <MudImage Src="images/hero-bp.svg" Alt="Monitoraggio Pressione Arteriosa" ObjectFit="ObjectFit.Cover" Height="260" Class="w-100" />
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+
+    <!-- Features Section -->
+    <MudText Typo="Typo.h5" Class="mb-4 fw-bold">
+        Funzionalità Principali
+    </MudText>
+
+    <MudGrid Class="mb-10">
+        <!-- Feature 1 -->
+        <MudItem xs="12" md="4">
+            <MudCard Elevation="3" Class="h-100 pa-4 d-flex flex-column rounded-lg">
+                <MudCardContent Class="flex-grow-1">
+                    <MudPaper Elevation="0" Class="pa-3 mb-3 d-inline-block rounded-circle" Style="background: rgba(126,111,255,0.15);">
+                        <MudIcon Icon="@Icons.Material.Filled.AddCard" Color="Color.Primary" Size="Size.Medium" />
+                    </MudPaper>
+                    <MudText Typo="Typo.h6" Class="mb-2">Inserimento Veloce</MudText>
+                    <MudText Typo="Typo.body2" Class="text-secondary mb-4">
+                        Registra rapidamente sistolica, diastolica, pulsazioni, dispositivo e contesto (a riposo, dopo caffè, ecc.).
+                    </MudText>
+
+                    <!-- Image Feature 1 -->
+                    <MudPaper Elevation="0" Class="overflow-hidden rounded" Style="min-height: 120px;">
+                        <MudImage Src="images/feature-input.svg" Alt="Inserimento Veloce" ObjectFit="ObjectFit.Cover" Class="w-100" Height="120" />
+                    </MudPaper>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+
+        <!-- Feature 2 -->
+        <MudItem xs="12" md="4">
+            <MudCard Elevation="3" Class="h-100 pa-4 d-flex flex-column rounded-lg">
+                <MudCardContent Class="flex-grow-1">
+                    <MudPaper Elevation="0" Class="pa-3 mb-3 d-inline-block rounded-circle" Style="background: rgba(61,203,108,0.15);">
+                        <MudIcon Icon="@Icons.Material.Filled.ShowChart" Color="Color.Success" Size="Size.Medium" />
+                    </MudPaper>
+                    <MudText Typo="Typo.h6" Class="mb-2">Grafici Interattivi</MudText>
+                    <MudText Typo="Typo.body2" Class="text-secondary mb-4">
+                        Filtra i dati per anno e mese per analizzare visivamente l'andamento della tua pressione nel tempo.
+                    </MudText>
+
+                    <!-- Image Feature 2 -->
+                    <MudPaper Elevation="0" Class="overflow-hidden rounded" Style="min-height: 120px;">
+                        <MudImage Src="images/feature-charts.svg" Alt="Grafici Interattivi" ObjectFit="ObjectFit.Cover" Class="w-100" Height="120" />
+                    </MudPaper>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+
+        <!-- Feature 3 -->
+        <MudItem xs="12" md="4">
+            <MudCard Elevation="3" Class="h-100 pa-4 d-flex flex-column rounded-lg">
+                <MudCardContent Class="flex-grow-1">
+                    <MudPaper Elevation="0" Class="pa-3 mb-3 d-inline-block rounded-circle" Style="background: rgba(74,134,255,0.15);">
+                        <MudIcon Icon="@Icons.Material.Filled.FileDownload" Color="Color.Info" Size="Size.Medium" />
+                    </MudPaper>
+                    <MudText Typo="Typo.h6" Class="mb-2">Esportazione CSV</MudText>
+                    <MudText Typo="Typo.body2" Class="text-secondary mb-4">
+                        Scarica lo storico completo in formato CSV in un solo clic per condividerlo facilmente con il tuo medico curante.
+                    </MudText>
+
+                    <!-- Image Feature 3 -->
+                    <MudPaper Elevation="0" Class="overflow-hidden rounded" Style="min-height: 120px;">
+                        <MudImage Src="images/feature-export.svg" Alt="Esportazione CSV" ObjectFit="ObjectFit.Cover" Class="w-100" Height="120" />
+                    </MudPaper>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+
+    <!-- Reference Guide Section -->
+    <MudPaper Elevation="3" Class="pa-6 mb-8 rounded-lg">
+        <MudText Typo="Typo.h5" Class="mb-2 fw-bold">
+            Valori di Riferimento della Pressione
+        </MudText>
+        <MudText Typo="Typo.body2" Class="text-secondary mb-4">
+            Classificazione indicativa secondo le linee guida della Società Europea di Ipertensione (ESH):
+        </MudText>
+
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="6" md="3">
+                <MudPaper Elevation="0" Class="pa-3 rounded" Style="background: rgba(61,203,108,0.1); border-left: 4px solid #3dcb6c;">
+                    <MudChip T="string" Color="Color.Success" Size="Size.Small" Class="mb-1">Ottimale</MudChip>
+                    <MudText Typo="Typo.body2">Sistolica: &lt; 120 mmHg</MudText>
+                    <MudText Typo="Typo.body2">Diastolica: &lt; 80 mmHg</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudPaper Elevation="0" Class="pa-3 rounded" Style="background: rgba(74,134,255,0.1); border-left: 4px solid #4a86ff;">
+                    <MudChip T="string" Color="Color.Info" Size="Size.Small" Class="mb-1">Normale</MudChip>
+                    <MudText Typo="Typo.body2">Sistolica: 120 - 129 mmHg</MudText>
+                    <MudText Typo="Typo.body2">Diastolica: 80 - 84 mmHg</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudPaper Elevation="0" Class="pa-3 rounded" Style="background: rgba(255,181,69,0.1); border-left: 4px solid #ffb545;">
+                    <MudChip T="string" Color="Color.Warning" Size="Size.Small" Class="mb-1">Normale-Alta</MudChip>
+                    <MudText Typo="Typo.body2">Sistolica: 130 - 139 mmHg</MudText>
+                    <MudText Typo="Typo.body2">Diastolica: 85 - 89 mmHg</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudPaper Elevation="0" Class="pa-3 rounded" Style="background: rgba(255,63,95,0.1); border-left: 4px solid #ff3f5f;">
+                    <MudChip T="string" Color="Color.Error" Size="Size.Small" Class="mb-1">Ipertensione</MudChip>
+                    <MudText Typo="Typo.body2">Sistolica: ≥ 140 mmHg</MudText>
+                    <MudText Typo="Typo.body2">Diastolica: ≥ 90 mmHg</MudText>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+
+        <MudText Typo="Typo.caption" Class="text-secondary mt-4 d-block" Style="font-style: italic;">
+            * Nota: I dati sopra riportati hanno solo scopo informativo e non costituiscono diagnosi medica.
+        </MudText>
+    </MudPaper>
+</MudContainer>

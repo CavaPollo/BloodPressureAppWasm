@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "unsplash": {
+      "command": "npx",
+      "args": ["-y", "@pipeworx/mcp-unsplash"],
+      "env": {
+        "UNSPLASH_ACCESS_KEY": "RjqIG4etmWJxjkGmv9aHB3OCKjKW_1IFyJT0gHPauD4"
+      }
+    }
+  }
+}

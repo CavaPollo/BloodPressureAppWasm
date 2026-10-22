@@ -1,0 +1,403 @@
+﻿@page "/bloodPressure"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Http
+@using System.Globalization
+@using System.Text
+@using MudBlazor.Charts
+@inject IHttpClientFactory httpClientFactory
+@inject ILocalStorageService localstorage
+@inject BloodPressureAppWasm.Services.SyncService SyncService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Pressioni Sanguinee</PageTitle>
+@if (IsLoading)
+{
+    <Loading></Loading>
+}
+else
+{
+    <AuthorizeView>
+        <Authorized>
+            <MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+                <MudPaper Elevation="4" Class="pa-6 rounded-lg mb-6" Style="background: linear-gradient(135deg, rgba(30,30,45,0.95) 0%, rgba(26,26,39,0.95) 100%); border: 1px solid rgba(126,111,255,0.15);">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-6">
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="3">
+                            <MudIcon Icon="@Icons.Material.Filled.MonitorHeart" Color="Color.Primary" Size="Size.Large" />
+                            <MudText Typo="Typo.h5" Class="fw-bold">Andamento Pressioni Sanguinee</MudText>
+                        </MudStack>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenPopover" Class="rounded-lg pa-3">
+                            Nuova Misurazione
+                        </MudButton>
+                    </MudStack>
+
+                    <!-- Filter Controls Section -->
+                    <MudGrid Spacing="3" Class="mb-6">
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudSelect T="int" Label="Anno" Value="SelectedYear" ValueChanged="OnYearChanged" Variant="Variant.Outlined" Dense="true" Class="rounded-lg">
+                                @foreach (var year in Years)
+                                {
+                                    <MudSelectItem Value="year">@year</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="8">
+                            <MudSelect T="string" Label="Periodo di Riferimento" Value="SelectedPeriod" ValueChanged="OnPeriodChanged" Variant="Variant.Outlined" Dense="true" Class="rounded-lg">
+                                <MudSelectItem Value="@("AnnoSelezionato")">Tutto l'anno selezionato (@SelectedYear)</MudSelectItem>
+                                <MudSelectItem Value="@("Ultimi3")">Ultimi 3 mesi</MudSelectItem>
+                                <MudSelectItem Value="@("Ultimi6")">Ultimi 6 mesi</MudSelectItem>
+                                <MudSelectItem Value="@("Ultimi12")">Ultimi 12 mesi</MudSelectItem>
+                                <MudSelectItem Value="@("Ultimi24")">Ultimi 24 mesi</MudSelectItem>
+                                <MudSelectItem Value="@("Tutti")">Tutti i dati disponibili</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                    </MudGrid>
+
+                    <!-- Chart Container -->
+                    <MudPaper Elevation="0" Class="pa-4 rounded-lg" Style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
+                        @if (chartData != null && chartData.Any() && chartData[0].Data.Length > 0)
+                        {
+                            <MudChart ChartType="chartType" ChartSeries="@chartData" XAxisLabels="@_xAxisLabels" Options="@chartOptions" Width="100%" Height="350px" />
+                        }
+                        else
+                        {
+                            <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center" Class="pa-12">
+                                <MudIcon Icon="@Icons.Material.Filled.Timeline" Size="Size.Large" Color="Color.Default" Class="mb-2" />
+                                <MudText Typo="Typo.h6" Class="text-secondary">Nessun dato disponibile per il periodo selezionato</MudText>
+                            </MudStack>
+                        }
+                    </MudPaper>
+
+                    <!-- Actions Toolbar -->
+                    <MudToolBar Class="px-0 mt-4">
+                        <MudSpacer />
+                        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.FileDownload" OnClick="ExportCsv" Color="Color.Default" Class="rounded-lg">
+                            Esporta CSV
+                        </MudButton>
+                    </MudToolBar>
+                </MudPaper>
+
+                <!-- New Measurement Popover Modal -->
+                <MudPopover Open="@isPopoverOpen" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.CenterCenter">
+                    <MudPaper Class="pa-6 rounded-lg" Style="min-width: 360px; border: 1px solid rgba(126,111,255,0.3);">
+                        <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mb-4">
+                            <MudText Typo="Typo.h6" Class="fw-bold">Nuova Misurazione</MudText>
+                            <MudIconButton Icon="@Icons.Material.Outlined.Close" Color="Color.Default" OnClick="OpenPopover" Size="Size.Small" />
+                        </MudStack>
+                        <MudForm @ref="_form">
+                            @if (!string.IsNullOrEmpty(validationMessage))
+                            {
+                                <MudAlert Severity="Severity.Warning" Class="mb-3">@validationMessage</MudAlert>
+                            }
+                            <MudNumericField Value="newBloodPressure.Systolic == 0 ? (int?)null : newBloodPressure.Systolic" ValueChanged="(int? val) => newBloodPressure.Systolic = val ?? 0" Label="Sistolica (Massima)" Placeholder="es. 120" Required="true" Min="50" Max="250" HideSpinButtons="true" Class="mb-3" Variant="Variant.Outlined" />
+                            <MudNumericField Value="newBloodPressure.Diastolic == 0 ? (int?)null : newBloodPressure.Diastolic" ValueChanged="(int? val) => newBloodPressure.Diastolic = val ?? 0" Label="Diastolica (Minima)" Placeholder="es. 80" Required="true" Min="30" Max="170" HideSpinButtons="true" Class="mb-3" Variant="Variant.Outlined" />
+                            <MudNumericField Value="newBloodPressure.Pulse == 0 ? (int?)null : newBloodPressure.Pulse" ValueChanged="(int? val) => newBloodPressure.Pulse = val ?? 0" Label="Pulsazioni (Battiti/min)" Placeholder="es. 70" Required="true" Min="30" Max="220" HideSpinButtons="true" Class="mb-3" Variant="Variant.Outlined" />
+                            <MudTextField @bind-Value="newBloodPressure.Device" Label="Dispositivo" Placeholder="es. Omron, Smartwatch" Class="mb-3" Variant="Variant.Outlined" />
+                            <MudTextField @bind-Value="newBloodPressure.Context" Label="Contesto" Placeholder="es. A riposo, Dopo caffè" Class="mb-3" Variant="Variant.Outlined" />
+                            <MudDatePicker Label="Data misurazione" @bind-Date="_date" Class="mb-6" Variant="Variant.Outlined" />
+                            <MudStack Row="true" Justify="Justify.FlexEnd" Spacing="2">
+                                <MudButton Variant="Variant.Outlined" Color="Color.Default" OnClick="ClearPopover" Class="rounded-lg">Annulla</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SubmitForm" Class="rounded-lg">Salva</MudButton>
+                            </MudStack>
+                        </MudForm>
+                    </MudPaper>
+                </MudPopover>
+
+                @if (message != null)
+                {
+                    <MudAlert Severity="@(message.Item1 ? Severity.Success : Severity.Error)" Class="mt-4 rounded-lg">@message.Item2</MudAlert>
+                }
+            </MudContainer>
+        </Authorized>
+        <NotAuthorized>
+            <MudContainer MaxWidth="MaxWidth.Small" Class="mt-12 text-center">
+                <MudPaper Elevation="3" Class="pa-8 rounded-lg">
+                    <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Large" Color="Color.Primary" Class="mb-4" />
+                    <MudText Typo="Typo.h5" Class="mb-2">Accesso Riservato</MudText>
+                    <MudText Typo="Typo.body1" Class="text-secondary mb-6">Devi effettuare l'accesso per visualizzare e gestire le tue misurazioni.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Href="login" StartIcon="@Icons.Material.Filled.Login">
+                        Vai al Login
+                    </MudButton>
+                </MudPaper>
+            </MudContainer>
+        </NotAuthorized>
+    </AuthorizeView>
+}
+
+@code {
+    private bool IsLoading { get; set; } = false;
+    private List<ChartSeries> chartData;
+    private ChartOptions chartOptions;
+    private BloodPressureAppLibrary.BloodPressure newBloodPressure = new();
+    private List<BloodPressureAppLibrary.BloodPressure> bloodPressureData;
+    private List<BloodPressureAppLibrary.BloodPressure> AllbloodPressureData;
+    private bool isPopoverOpen = false;
+    private string? validationMessage;
+    private int SelectedYear;
+    private string SelectedPeriod = "AnnoSelezionato";
+    private MudForm _form;
+    private List<int> Years = new();
+    private HttpClient httpClient;
+    private ChartType chartType = ChartType.Line;
+    private string[] _xAxisLabels = { "" };
+    private Tuple<bool, string>? message;
+
+    private DateTime? _date
+    {
+        get => newBloodPressure.Timestamp;
+        set => newBloodPressure.Timestamp = value ?? DateTime.Today;
+    }
+
+    private void OpenPopover()
+    {
+        message = null;
+        validationMessage = null;
+        isPopoverOpen = !isPopoverOpen;
+        newBloodPressure = new BloodPressureAppLibrary.BloodPressure
+        {
+            Timestamp = DateTime.Now
+        };
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        message = null;
+        IsLoading = true;
+        httpClient = httpClientFactory.CreateClient("Api");
+
+        // Tenta di sincronizzare i dati offline pendenti
+        try
+        {
+            await SyncService.SyncPendingDataAsync();
+        }
+        catch { /* Ignora se offline */ }
+
+        AllbloodPressureData = await FetchBloodPressureDataAsync();
+
+        Years = AllbloodPressureData
+            .Where(bp => bp.Timestamp != null)
+            .Select(bp => bp.Timestamp.Year)
+            .Distinct()
+            .OrderByDescending(y => y)
+            .ToList();
+
+        if (!Years.Any())
+        {
+            Years = new List<int> { DateTime.Now.Year };
+        }
+
+        SelectedYear = Years.FirstOrDefault();
+        SelectedPeriod = "AnnoSelezionato";
+
+        UpdateChartData();
+        IsLoading = false;
+    }
+
+    private void OnYearChanged(int newYear)
+    {
+        SelectedYear = newYear;
+        UpdateChartData();
+    }
+
+    private void OnPeriodChanged(string newPeriod)
+    {
+        SelectedPeriod = newPeriod;
+        UpdateChartData();
+    }
+
+    private void UpdateChartData()
+    {
+        if (AllbloodPressureData == null) return;
+
+        DateTime? startDate = null;
+        DateTime? endDate = null;
+
+        switch (SelectedPeriod)
+        {
+            case "Tutti":
+                startDate = null;
+                endDate = null;
+                break;
+            case "AnnoSelezionato":
+                startDate = new DateTime(SelectedYear, 1, 1);
+                endDate = new DateTime(SelectedYear, 12, 31, 23, 59, 59);
+                break;
+            case "Ultimi3":
+                endDate = DateTime.Now;
+                startDate = endDate.Value.AddMonths(-3);
+                break;
+            case "Ultimi6":
+                endDate = DateTime.Now;
+                startDate = endDate.Value.AddMonths(-6);
+                break;
+            case "Ultimi12":
+                endDate = DateTime.Now;
+                startDate = endDate.Value.AddMonths(-12);
+                break;
+            case "Ultimi24":
+                endDate = DateTime.Now;
+                startDate = endDate.Value.AddMonths(-24);
+                break;
+            default:
+                startDate = new DateTime(SelectedYear, 1, 1);
+                endDate = new DateTime(SelectedYear, 12, 31, 23, 59, 59);
+                break;
+        }
+
+        IEnumerable<BloodPressureAppLibrary.BloodPressure> query = AllbloodPressureData;
+
+        if (startDate.HasValue)
+            query = query.Where(bp => bp.Timestamp >= startDate.Value);
+
+        if (endDate.HasValue)
+            query = query.Where(bp => bp.Timestamp <= endDate.Value);
+
+        bloodPressureData = query.OrderBy(bpd => bpd.Timestamp).ToList();
+
+        if (!bloodPressureData.Any())
+        {
+            _xAxisLabels = new string[] { "" };
+            chartData = new List<ChartSeries>
+            {
+                new ChartSeries { Name = "Sistolica", Data = Array.Empty<double>() },
+                new ChartSeries { Name = "Diastolica", Data = Array.Empty<double>() },
+                new ChartSeries { Name = "Pulsazioni", Data = Array.Empty<double>() }
+            };
+            chartType = ChartType.Bar;
+            return;
+        }
+
+        _xAxisLabels = bloodPressureData.Select(bPD => bPD.Timestamp.ToString("dd/MMM")).ToArray();
+
+        chartData = new List<ChartSeries>
+        {
+            new ChartSeries
+            {
+                Name = "Sistolica",
+                Data = bloodPressureData.Select(x => (double)x.Systolic).ToArray()
+            },
+            new ChartSeries
+            {
+                Name = "Diastolica",
+                Data = bloodPressureData.Select(x => (double)x.Diastolic).ToArray()
+            },
+            new ChartSeries
+            {
+                Name = "Pulsazioni",
+                Data = bloodPressureData.Select(x => (double)x.Pulse).ToArray()
+            }
+        };
+
+        chartType = chartData[0].Data.Length < 3 ? ChartType.Bar : ChartType.Line;
+
+        chartOptions = new ChartOptions
+        {
+            YAxisTicks = 20
+        };
+
+        StateHasChanged();
+    }
+
+    private async Task<List<BloodPressureAppLibrary.BloodPressure>> FetchBloodPressureDataAsync()
+    {
+        try
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            string id = "";
+            if (authState.User.Identity is { IsAuthenticated: true })
+            {
+                var user = authState.User;
+                id = user.Claims?.FirstOrDefault(cl => cl.Type == "nameid")?.Value;
+            }
+            if (string.IsNullOrEmpty(id))
+            {
+                return new List<BloodPressureAppLibrary.BloodPressure>();
+            }
+
+            var response = await httpClient.GetAsync($"api/bloodpressure/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                var bloodPressures = await response.Content.ReadFromJsonAsync<List<BloodPressureAppLibrary.BloodPressure>>();
+                return bloodPressures ?? new List<BloodPressureAppLibrary.BloodPressure>();
+            }
+            return new List<BloodPressureAppLibrary.BloodPressure>();
+        }
+        catch (Exception)
+        {
+            return new List<BloodPressureAppLibrary.BloodPressure>();
+        }
+    }
+
+    private async Task SubmitForm()
+    {
+        if (newBloodPressure.Systolic <= newBloodPressure.Diastolic)
+        {
+            validationMessage = "Attenzione: La Sistolica deve essere superiore alla Diastolica.";
+            return;
+        }
+
+        if (_form != null)
+        {
+            await _form.Validate();
+            if (!_form.IsValid) return;
+        }
+
+        validationMessage = null;
+        isPopoverOpen = false;
+
+        try
+        {
+            var response = await httpClient.PostAsJsonAsync("api/bloodpressure", newBloodPressure);
+            if (!response.IsSuccessStatusCode)
+            {
+                message = new Tuple<bool, string>(false, response.ReasonPhrase ?? "Errore nel salvataggio");
+            }
+            else
+            {
+                message = new Tuple<bool, string>(true, "Salvato e sincronizzato correttamente");
+                AllbloodPressureData.Add(newBloodPressure);
+                UpdateChartData();
+                newBloodPressure = new BloodPressureAppLibrary.BloodPressure { Timestamp = DateTime.Now };
+            }
+        }
+        catch (HttpRequestException)
+        {
+            // Modalità Offline: salviamo nella coda locale
+            await SyncService.EnqueueMeasurementAsync(newBloodPressure);
+            message = new Tuple<bool, string>(true, "Sei offline: misurazione salvata in locale. Verrà sincronizzata alla prossima connessione.");
+            AllbloodPressureData.Add(newBloodPressure);
+            UpdateChartData();
+            newBloodPressure = new BloodPressureAppLibrary.BloodPressure { Timestamp = DateTime.Now };
+        }
+        catch (Exception ex)
+        {
+            message = new Tuple<bool, string>(false, $"Errore: {ex.Message}");
+        }
+    }
+
+    private void ClearPopover()
+    {
+        newBloodPressure = new BloodPressureAppLibrary.BloodPressure { Timestamp = DateTime.Now };
+        isPopoverOpen = false;
+    }
+
+    private async Task ExportCsv()
+    {
+        if (AllbloodPressureData == null || !AllbloodPressureData.Any())
+        {
+            message = new Tuple<bool, string>(false, "Nessun dato da esportare");
+            return;
+        }
+
+        var csvBuilder = new StringBuilder();
+        csvBuilder.AppendLine("Data,Sistolica,Diastolica,Pulsazioni,Dispositivo,Contesto");
+
+        foreach (var bp in AllbloodPressureData.OrderBy(b => b.Timestamp))
+        {
+            csvBuilder.AppendLine($"{bp.Timestamp:yyyy-MM-dd HH:mm},{bp.Systolic},{bp.Diastolic},{bp.Pulse},\"{bp.Device}\",\"{bp.Context}\"");
+        }
+
+        var csvContent = csvBuilder.ToString();
+        await JSRuntime.InvokeVoidAsync("saveAsFile", "bloodpressure_data.csv", csvContent);
+    }
+}

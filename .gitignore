@@ -1,0 +1,38 @@
+# Build outputs
+bin/
+obj/
+
+# IDE
+.vs/
+*.slnx
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# NuGet
+packages/
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+*.log
+
+# Local secrets
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

@@ -1,0 +1,203 @@
+@page "/user"
+@using BloodPressureAppLibrary
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@inject IHttpClientFactory httpClientFactory
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ISnackbar Snackbar
+
+<PageTitle>Profilo Utente</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <MudContainer MaxWidth="MaxWidth.Small" Class="mt-6 mb-12">
+            <MudText Typo="Typo.h4" Class="mb-6 fw-bold">Il tuo Profilo</MudText>
+
+            @if (IsLoading)
+            {
+                <MudStack AlignItems="AlignItems.Center" Class="pa-8">
+                    <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+                </MudStack>
+            }
+            else if (patient == null)
+            {
+                <MudAlert Severity="Severity.Error" Class="mb-4">
+                    Impossibile caricare i dati del profilo.
+                </MudAlert>
+                <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="LoadProfileAsync">
+                    Riprova
+                </MudButton>
+            }
+            else
+            {
+                <MudForm @ref="_form">
+                    <!-- Dati Personali -->
+                    <MudPaper Class="pa-6 rounded-lg mb-6" Elevation="2">
+                        <MudText Typo="Typo.h6" Class="mb-4">Dati Anagrafici e Fisici</MudText>
+                        <MudGrid Spacing="2">
+                            <MudItem xs="12" sm="6">
+                                <MudTextField @bind-Value="patient.Name" Label="Nome" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudTextField @bind-Value="patient.SurName" Label="Cognome" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudDatePicker @bind-Date="_birthDate" Label="Data di Nascita" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSelect @bind-Value="patient.Gender" Label="Genere" Variant="Variant.Outlined" Margin="Margin.Dense">
+                                    <MudSelectItem Value="@("M")">Maschio</MudSelectItem>
+                                    <MudSelectItem Value="@("F")">Femmina</MudSelectItem>
+                                    <MudSelectItem Value="@("Altro")">Altro</MudSelectItem>
+                                </MudSelect>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudNumericField @bind-Value="patient.Weight" Label="Peso (kg)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudNumericField @bind-Value="patient.Height" Label="Altezza (cm)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudPaper>
+
+                    <!-- Modifica Password -->
+                    <MudPaper Class="pa-6 rounded-lg mb-6" Elevation="2">
+                        <MudText Typo="Typo.h6" Class="mb-4">Sicurezza e Password</MudText>
+                        <MudText Typo="Typo.body2" Class="text-secondary mb-3">Lascia vuoto se non vuoi modificare la password corrente.</MudText>
+                        <MudGrid Spacing="2">
+                            <MudItem xs="12">
+                                <MudTextField @bind-Value="NewPassword" Label="Nuova Password" InputType="InputType.Password" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                            <MudItem xs="12">
+                                <MudTextField @bind-Value="ConfirmPassword" Label="Conferma Nuova Password" InputType="InputType.Password" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudPaper>
+
+                    <!-- Salvataggio -->
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SaveProfile" FullWidth="true" Class="rounded-lg pa-3">
+                        Salva Modifiche Profilo
+                    </MudButton>
+                </MudForm>
+            }
+        </MudContainer>
+    </Authorized>
+    <NotAuthorized>
+        <MudContainer MaxWidth="MaxWidth.Small" Class="mt-12 text-center">
+            <MudPaper Elevation="3" Class="pa-8 rounded-lg">
+                <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Large" Color="Color.Primary" Class="mb-4" />
+                <MudText Typo="Typo.h5" Class="mb-2">Accesso Riservato</MudText>
+                <MudText Typo="Typo.body1" Class="text-secondary mb-6">Devi effettuare l'accesso per visualizzare il tuo profilo.</MudText>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Href="login" StartIcon="@Icons.Material.Filled.Login">
+                    Vai al Login
+                </MudButton>
+            </MudPaper>
+        </MudContainer>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private Patient? patient;
+    private MudForm? _form;
+    private string? NewPassword;
+    private string? ConfirmPassword;
+    private HttpClient? httpClient;
+    private bool IsLoading = true;
+
+    private DateTime? _birthDate
+    {
+        get => patient?.BirthDate;
+        set { if (patient != null && value.HasValue) patient.BirthDate = value.Value; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient = httpClientFactory.CreateClient("Api");
+        await LoadProfileAsync();
+    }
+
+    private async Task LoadProfileAsync()
+    {
+        IsLoading = true;
+        try
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            if (authState.User.Identity is { IsAuthenticated: true })
+            {
+                var user = authState.User;
+
+                // 1. Prova prima con l'ObjectId (NameIdentifier o nameid)
+                var userId = user.Claims.FirstOrDefault(c => c.Type == "nameid")?.Value
+                             ?? user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    try
+                    {
+                        patient = await httpClient!.GetFromJsonAsync<Patient>($"api/patients/{userId}");
+                    }
+                    catch
+                    {
+                        patient = null;
+                    }
+                }
+
+                // 2. Fallback: prova per Email/Username claim se l'ID fallisce
+                if (patient == null)
+                {
+                    var username = user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value
+                                  ?? user.Claims.FirstOrDefault(c => c.Type == "email")?.Value
+                                  ?? user.Identity?.Name;
+
+                    if (!string.IsNullOrEmpty(username))
+                    {
+                        patient = await httpClient!.GetFromJsonAsync<Patient>($"api/patients/username/{username}");
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Errore nel recupero dati profilo: {ex.Message}", Severity.Error);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+
+    private async Task SaveProfile()
+    {
+        if (patient == null || httpClient == null) return;
+
+        if (!string.IsNullOrEmpty(NewPassword))
+        {
+            if (NewPassword != ConfirmPassword)
+            {
+                Snackbar.Add("Le password non coincidono", Severity.Warning);
+                return;
+            }
+            patient.Password = NewPassword;
+        }
+
+        try
+        {
+            var response = await httpClient.PutAsJsonAsync("api/patients", patient);
+            if (response.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Profilo aggiornato con successo!", Severity.Success);
+                NewPassword = null;
+                ConfirmPassword = null;
+            }
+            else
+            {
+                Snackbar.Add("Errore durante il salvataggio del profilo", Severity.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Errore di connessione: {ex.Message}", Severity.Error);
+        }
+    }
+}

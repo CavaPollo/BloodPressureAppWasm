@@ -1,0 +1,181 @@
+@baseUrl = https://api.tuodominio.it
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...  # incolla il JWT dopo il login
+@userId = 65f8e2c4b3a1d4e8f7a9b0c1  # claim "nameid" dal JWT (decodifica su jwt.io)
+@patientId = 65f8e2c4b3a1d4e8f7a9b0c1  # stesso di userId, alias per leggibilità
+
+### ==========================================
+### AUTH — api/auth (AuthorizationController)
+### ==========================================
+
+### 1. Login (pubblico) — restituisce JWT
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "tuo_username",
+  "password": "tua_password"
+}
+
+### 2. Validazione token (richiede Bearer) — GET api/auth
+GET {{baseUrl}}/api/auth
+Authorization: Bearer {{token}}
+
+### 3. Refresh token — POST api/auth/refresh (richiede cookie refresh_token)
+POST {{baseUrl}}/api/auth/refresh
+
+### 4. Genera hash password (richiede secret "92Pollo92") — POST api/auth/generatehash
+POST {{baseUrl}}/api/auth/generatehash
+Content-Type: application/json
+
+{
+  "username": "tuo_username",
+  "password": "nuova_password",
+  "hashPassword": "92Pollo92"
+}
+
+### 5. Forgot password — POST api/auth/forgot-password
+POST {{baseUrl}}/api/auth/forgot-password
+Content-Type: application/json
+
+{
+  "username": "tuo_username"
+}
+
+### 6. Reset password — POST api/auth/reset-password
+POST {{baseUrl}}/api/auth/reset-password
+Content-Type: application/json
+
+{
+  "token": "token_da_email_hex_64_chars",
+  "newPassword": "nuova_password_sicura"
+}
+
+### ==========================================
+### BLOOD PRESSURE — api/bloodpressure (BloodPressureController)
+### Tutti richiedono Bearer token
+### ==========================================
+
+### 7. Lista misurazioni per paziente — GET api/bloodpressure/{patientId}
+GET {{baseUrl}}/api/bloodpressure/{{patientId}}
+Authorization: Bearer {{token}}
+
+### 8. Crea nuova misurazione — POST api/bloodpressure
+POST {{baseUrl}}/api/bloodpressure
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "systolic": 120,
+  "diastolic": 80,
+  "pulse": 72,
+  "timestamp": "2026-10-20T10:30:00Z",
+  "context": "Mattina",
+  "device": "Omron M7",
+  "patientId": "{{patientId}}"
+}
+
+### ==========================================
+### PATIENTS — api/patients (PatientsController)
+### Tutti richiedono Bearer token
+### ==========================================
+
+### 9. Lista tutti i pazienti (solo ADMIN) — GET api/patients
+GET {{baseUrl}}/api/patients
+Authorization: Bearer {{token}}
+
+### 10. Paziente per ID — GET api/patients/{id}
+GET {{baseUrl}}/api/patients/{{patientId}}
+Authorization: Bearer {{token}}
+
+### 11. Paziente per username — GET api/patients/username/{username}
+GET {{baseUrl}}/api/patients/username/tuo_username
+Authorization: Bearer {{token}}
+
+### 12. Crea paziente (solo ADMIN) — POST api/patients
+POST {{baseUrl}}/api/patients
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Mario",
+  "surname": "Rossi",
+  "birthDate": "1980-05-15T00:00:00Z",
+  "gender": "M",
+  "weight": 75,
+  "height": 178,
+  "username": "mario.rossi",
+  "password": "Password123!",
+  "role": 1,
+  "email": "mario@example.com"
+}
+
+### 13. Aggiorna paziente — PUT api/patients
+PUT {{baseUrl}}/api/patients
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "id": "{{patientId}}",
+  "name": "Mario",
+  "surname": "Rossi",
+  "birthDate": "1980-05-15T00:00:00Z",
+  "gender": "M",
+  "weight": 76,
+  "height": 178,
+  "username": "mario.rossi",
+  "password": "Password123!",
+  "role": 1,
+  "email": "mario@example.com"
+}
+
+### ==========================================
+### PUSH NOTIFICATIONS — api/push (PushNotificationController)
+### Tutti richiedono Bearer token
+### ==========================================
+
+### 14. Iscrivi a push notifications — POST api/push/subscribe
+POST {{baseUrl}}/api/push/subscribe
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "endpoint": "https://fcm.googleapis.com/fcm/send/...",
+  "keys": {
+    "p256dh": "BASE64_P256DH_KEY",
+    "auth": "BASE64_AUTH_KEY"
+  }
+}
+
+### 15. Invia reminder terapia (test) — POST api/push/send/{therapyId}
+# AllowAnonymous in dev, ma richiede patientId nel body se non autenticato
+POST {{baseUrl}}/api/push/send/therapy-123
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "patientId": "{{patientId}}",
+  "therapyId": "therapy-123",
+  "therapyName": "Ramipril",
+  "dosage": "5mg",
+  "title": "Promemoria Terapia",
+  "body": "È ora di prendere: Ramipril - 5mg",
+  "tag": "therapy-therapy-123",
+  "url": "/therapies"
+}
+
+### ==========================================
+### WEATHER FORECAST — api/weatherforecast (WeatherForecastController)
+### Swagger/endpoint di default .NET
+### ==========================================
+
+### 16. Weather forecast — GET api/weatherforecast
+GET {{baseUrl}}/api/weatherforecast
+
+---
+
+### NOTE RAPIDE
+- `{{userId}}` / `{{patientId}}` = claim `nameid` (o `sub`) del JWT. Decodifica il token su https://jwt.io dopo il login.
+- Il token va incollato in `@token = ...` dopo aver eseguito **Login (1)**.
+- Per **refresh token (3)** serve il cookie `refresh_token` (HttpOnly) — REST Client non lo manda automaticamente; usa browser o imposta manualmente `Cookie: refresh_token=...` nell'header.
+- `generatehash (4)` richiede l'hardcoded secret `92Pollo92` — solo per setup iniziale password.
+- Ruoli: `ADMIN = 0`, `USER = 1` (vedi `Role.cs` in BloodPressureAppLibrary).

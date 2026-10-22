@@ -1,0 +1,44 @@
+{
+  "name": "Blood Pressure Tracker",
+  "short_name": "BP Tracker",
+  "description": "Monitora la tua pressione arteriosa e gestisci le terapie farmacologiche",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1a1a27",
+  "theme_color": "#7e6fff",
+  "scope": "/",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Nuova Misurazione",
+      "short_name": "Misura",
+      "description": "Registra una nuova misurazione della pressione",
+      "url": "/bloodpressure",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Le mie Terapie",
+      "short_name": "Terapie",
+      "description": "Visualizza e gestisci le terapie farmacologiche",
+      "url": "/therapies",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

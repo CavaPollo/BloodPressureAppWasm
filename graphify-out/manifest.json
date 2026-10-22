@@ -1,0 +1,368 @@
+{
+  ".claude.json": {
+    "mtime": 1792354631.0585525,
+    "seen": 1792450607.7374685,
+    "ast_hash": "1baf78f63e46c67f25a66c6e6d267ed0",
+    "semantic_hash": "1baf78f63e46c67f25a66c6e6d267ed0"
+  },
+  ".claude/settings.local.json": {
+    "mtime": 1792448512.3027024,
+    "seen": 1792450607.7374997,
+    "ast_hash": "55ca88cfff4cf5afe95c1851f4a62cee",
+    "semantic_hash": "55ca88cfff4cf5afe95c1851f4a62cee"
+  },
+  ".mcp.json": {
+    "mtime": 1792355066.557401,
+    "seen": 1792450607.7375062,
+    "ast_hash": "e19e5757dc94326774d0679e8f24dfb8",
+    "semantic_hash": "e19e5757dc94326774d0679e8f24dfb8"
+  },
+  ".vs/BloodPressureAppWasm.slnx/v18/DocumentLayout.backup.json": {
+    "mtime": 1792401029.1973324,
+    "seen": 1792450607.7375112,
+    "ast_hash": "b1e9c87e0f6fd1e996687ceae219acd7",
+    "semantic_hash": "b1e9c87e0f6fd1e996687ceae219acd7"
+  },
+  ".vs/BloodPressureAppWasm.slnx/v18/DocumentLayout.json": {
+    "mtime": 1792439861.479789,
+    "seen": 1792450607.7375164,
+    "ast_hash": "b1e9c87e0f6fd1e996687ceae219acd7",
+    "semantic_hash": "b1e9c87e0f6fd1e996687ceae219acd7"
+  },
+  "BloodPressureAppWasm.Tests/BloodPressureAppWasm.Tests.csproj": {
+    "mtime": 1792448634.067226,
+    "seen": 1792450607.737521,
+    "ast_hash": "cdb09f0133fd2f71eedc1d62e0c498ee",
+    "semantic_hash": "cdb09f0133fd2f71eedc1d62e0c498ee"
+  },
+  "BloodPressureAppWasm.Tests/TherapyDialogTests.razor": {
+    "mtime": 1792448658.4495368,
+    "seen": 1792450607.7375274,
+    "ast_hash": "23723f8e9bc80383c59fa2983c1a2072",
+    "semantic_hash": "23723f8e9bc80383c59fa2983c1a2072"
+  },
+  "BloodPressureAppWasm.Tests/TherapyModelTests.cs": {
+    "mtime": 1792448674.4623096,
+    "seen": 1792450607.7375314,
+    "ast_hash": "444dcb53583e2f2d49cf34dff5237da7",
+    "semantic_hash": "444dcb53583e2f2d49cf34dff5237da7"
+  },
+  "BloodPressureAppWasm.Tests/UnitTest1.cs": {
+    "mtime": 1792448576.2575247,
+    "seen": 1792450607.737536,
+    "ast_hash": "9dd016a4857b8d8b61faa36525710925",
+    "semantic_hash": "9dd016a4857b8d8b61faa36525710925"
+  },
+  "BloodPressureAppWasm.Tests/bin/Debug/net10.0/BloodPressureAppWasm.Tests.deps.json": {
+    "mtime": 1792448711.2195983,
+    "seen": 1792450607.7375398,
+    "ast_hash": "5ec2bf646c285b2bbc10e2c21e94b79e",
+    "semantic_hash": "5ec2bf646c285b2bbc10e2c21e94b79e"
+  },
+  "BloodPressureAppWasm.Tests/bin/Debug/net10.0/BloodPressureAppWasm.Tests.runtimeconfig.json": {
+    "mtime": 1792448711.3718326,
+    "seen": 1792450607.7375443,
+    "ast_hash": "abdaf131268b27dc3eb87884d9f03e49",
+    "semantic_hash": "abdaf131268b27dc3eb87884d9f03e49"
+  },
+  "BloodPressureAppWasm.Tests/bin/Debug/net10.0/BloodPressureAppWasm.runtimeconfig.json": {
+    "mtime": 1792104485.4638543,
+    "seen": 1792450607.7375498,
+    "ast_hash": "fbc3b1ce634c18f9f088b5b5dff50981",
+    "semantic_hash": "fbc3b1ce634c18f9f088b5b5dff50981"
+  },
+  "BloodPressureAppWasm.Tests/bin/Debug/net10.0/BloodPressureAppWasm.staticwebassets.runtime.json": {
+    "mtime": 1792448821.2766695,
+    "seen": 1792450607.7375538,
+    "ast_hash": "c1ffa883ecc535994470456ddaa553e9",
+    "semantic_hash": "c1ffa883ecc535994470456ddaa553e9"
+  },
+  "BloodPressureAppWasm.Tests/bin/Debug/net10.0/appsettings.Development.json": {
+    "mtime": 1792101836.5839846,
+    "seen": 1792450607.7375584,
+    "ast_hash": "3cbf4451178798a1557899f0149c066f",
+    "semantic_hash": "3cbf4451178798a1557899f0149c066f"
+  },
+  "BloodPressureAppWasm.Tests/bin/Debug/net10.0/appsettings.json": {
+    "mtime": 1792184326.330209,
+    "seen": 1792450607.7375622,
+    "ast_hash": "3e5857d5917ae4a44633f9dbdd4eb046",
+    "semantic_hash": "3e5857d5917ae4a44633f9dbdd4eb046"
+  },
+  "BloodPressureAppWasm.Tests/obj/BloodPressureAppWasm.Tests.csproj.nuget.dgspec.json": {
+    "mtime": 1792448694.3267524,
+    "seen": 1792450607.7375665,
+    "ast_hash": "45de08fc9d05702c53a7b9987d44afa0",
+    "semantic_hash": "45de08fc9d05702c53a7b9987d44afa0"
+  },
+  "BloodPressureAppWasm.Tests/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1792448703.8130643,
+    "seen": 1792450607.7375705,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": "8479efdf06e2d26e053d27ffa6964185"
+  },
+  "BloodPressureAppWasm.Tests/obj/Debug/net10.0/BloodPressureAppWasm.Tests.AssemblyInfo.cs": {
+    "mtime": 1792448703.8712347,
+    "seen": 1792450607.7375743,
+    "ast_hash": "8ba11c9a8b04b893f5b1619fe500c9e1",
+    "semantic_hash": "8ba11c9a8b04b893f5b1619fe500c9e1"
+  },
+  "BloodPressureAppWasm.Tests/obj/Debug/net10.0/BloodPressureAppWasm.Tests.GlobalUsings.g.cs": {
+    "mtime": 1792448695.0311828,
+    "seen": 1792450607.7375796,
+    "ast_hash": "535736b170e2841ba51152623818eddd",
+    "semantic_hash": "535736b170e2841ba51152623818eddd"
+  },
+  "BloodPressureAppWasm.Tests/obj/project.assets.json": {
+    "mtime": 1792448634.0895061,
+    "seen": 1792450607.7375834,
+    "ast_hash": "8460da0f9d3622562f2943f04c6da265",
+    "semantic_hash": "8460da0f9d3622562f2943f04c6da265"
+  },
+  "BloodPressureAppWasm.slnx": {
+    "mtime": 1792101106.9338944,
+    "seen": 1792450607.7375875,
+    "ast_hash": "b88575e755262109c32f307f50b7b3b3",
+    "semantic_hash": "b88575e755262109c32f307f50b7b3b3"
+  },
+  "BloodPressureAppWasm/App.razor": {
+    "mtime": 1766485303.0054243,
+    "seen": 1792450607.7375917,
+    "ast_hash": "9483a4dc6d94dce458c48d58877cfbdd",
+    "semantic_hash": "9483a4dc6d94dce458c48d58877cfbdd"
+  },
+  "BloodPressureAppWasm/BloodPressureAppWasm.csproj": {
+    "mtime": 1766422391.0134652,
+    "seen": 1792450607.737599,
+    "ast_hash": "8b1c830741d1d39b97684b2a02c1cb4e",
+    "semantic_hash": "8b1c830741d1d39b97684b2a02c1cb4e"
+  },
+  "BloodPressureAppWasm/Components/DialogContent.razor": {
+    "mtime": 1792440111.1142595,
+    "seen": 1792450607.7376032,
+    "ast_hash": "4d22b0b0f82c1605a119459ff2cc0b29",
+    "semantic_hash": "4d22b0b0f82c1605a119459ff2cc0b29"
+  },
+  "BloodPressureAppWasm/Layout/MainLayout.razor": {
+    "mtime": 1792255164.0338316,
+    "seen": 1792450607.7376075,
+    "ast_hash": "de5a601cd8bdfa8fd467594b8bf980dc",
+    "semantic_hash": "de5a601cd8bdfa8fd467594b8bf980dc"
+  },
+  "BloodPressureAppWasm/Layout/NavMenu.razor": {
+    "mtime": 1792438300.86192,
+    "seen": 1792450607.7376115,
+    "ast_hash": "676215f6a7da4835a8566af92e6c0f23",
+    "semantic_hash": "676215f6a7da4835a8566af92e6c0f23"
+  },
+  "BloodPressureAppWasm/Pages/BloodPressure.razor": {
+    "mtime": 1792360135.296378,
+    "seen": 1792450607.7376153,
+    "ast_hash": "bba3a1c161b0419ca5be0347265a7511",
+    "semantic_hash": "bba3a1c161b0419ca5be0347265a7511"
+  },
+  "BloodPressureAppWasm/Pages/Counter.razor": {
+    "mtime": 1766421978.7590556,
+    "seen": 1792450607.7376194,
+    "ast_hash": "32c8ca0737f51544273734b916425e98",
+    "semantic_hash": "32c8ca0737f51544273734b916425e98"
+  },
+  "BloodPressureAppWasm/Pages/ForgotPassword.razor": {
+    "mtime": 1792358451.94018,
+    "seen": 1792450607.7376232,
+    "ast_hash": "b5606c1d8e96b69eb0941fb615edb833",
+    "semantic_hash": "b5606c1d8e96b69eb0941fb615edb833"
+  },
+  "BloodPressureAppWasm/Pages/Home.razor": {
+    "mtime": 1792355358.864538,
+    "seen": 1792450607.7376268,
+    "ast_hash": "d1d4dd05568c34870818cd811ef083be",
+    "semantic_hash": "d1d4dd05568c34870818cd811ef083be"
+  },
+  "BloodPressureAppWasm/Pages/Login.razor": {
+    "mtime": 1792359120.7066176,
+    "seen": 1792450607.7376301,
+    "ast_hash": "b8432b442eaf63c568dae6970893b5a8",
+    "semantic_hash": "b8432b442eaf63c568dae6970893b5a8"
+  },
+  "BloodPressureAppWasm/Pages/NotFound.razor": {
+    "mtime": 1766421978.7970445,
+    "seen": 1792450607.7376337,
+    "ast_hash": "b43132764687de5710f24e46d3d3f7ff",
+    "semantic_hash": "b43132764687de5710f24e46d3d3f7ff"
+  },
+  "BloodPressureAppWasm/Pages/ResetPassword.razor": {
+    "mtime": 1792358848.061071,
+    "seen": 1792450607.7376375,
+    "ast_hash": "143ab862efcd9270537df8ad7b50a4d9",
+    "semantic_hash": "143ab862efcd9270537df8ad7b50a4d9"
+  },
+  "BloodPressureAppWasm/Pages/Therapies.razor": {
+    "mtime": 1792442086.6616027,
+    "seen": 1792450607.7376416,
+    "ast_hash": "767ec52ac840fa4d3d5719ccedf8df01",
+    "semantic_hash": "767ec52ac840fa4d3d5719ccedf8df01"
+  },
+  "BloodPressureAppWasm/Pages/User.razor": {
+    "mtime": 1792255001.418793,
+    "seen": 1792450607.737645,
+    "ast_hash": "cba45c2ae29232beb7f89be7bfb711c0",
+    "semantic_hash": "cba45c2ae29232beb7f89be7bfb711c0"
+  },
+  "BloodPressureAppWasm/Pages/Weather.razor": {
+    "mtime": 1766421978.7990487,
+    "seen": 1792450607.7376485,
+    "ast_hash": "c9ae084c1d18e071bdc7a5d53039b6d1",
+    "semantic_hash": "c9ae084c1d18e071bdc7a5d53039b6d1"
+  },
+  "BloodPressureAppWasm/Program.cs": {
+    "mtime": 1792442042.2507377,
+    "seen": 1792450607.7376525,
+    "ast_hash": "071f6bc30230a10f8ebe0bc9e34ec5b0",
+    "semantic_hash": "071f6bc30230a10f8ebe0bc9e34ec5b0"
+  },
+  "BloodPressureAppWasm/Properties/launchSettings.json": {
+    "mtime": 1766421978.8040519,
+    "seen": 1792450607.7376564,
+    "ast_hash": "125c16843ff1f99f6aded2fa5b921fc8",
+    "semantic_hash": "125c16843ff1f99f6aded2fa5b921fc8"
+  },
+  "BloodPressureAppWasm/Services/PushNotificationService.cs": {
+    "mtime": 1792442149.4734595,
+    "seen": 1792450607.7376602,
+    "ast_hash": "c97af7e2498219397bff19db44acb08d",
+    "semantic_hash": "c97af7e2498219397bff19db44acb08d"
+  },
+  "BloodPressureAppWasm/Services/ReminderService.cs": {
+    "mtime": 1792438830.380886,
+    "seen": 1792450607.737664,
+    "ast_hash": "780a856ecb2dfca2c52d49d272c318e9",
+    "semantic_hash": "780a856ecb2dfca2c52d49d272c318e9"
+  },
+  "BloodPressureAppWasm/Services/SyncService.cs": {
+    "mtime": 1792359674.2452016,
+    "seen": 1792450607.737667,
+    "ast_hash": "01d57b99be617ce905ff26533b3827db",
+    "semantic_hash": "01d57b99be617ce905ff26533b3827db"
+  },
+  "BloodPressureAppWasm/_Imports.razor": {
+    "mtime": 1766485435.7397187,
+    "seen": 1792450607.7376711,
+    "ast_hash": "20f3df259d5dae5b4b0c3f9b43282cd3",
+    "semantic_hash": "20f3df259d5dae5b4b0c3f9b43282cd3"
+  },
+  "BloodPressureAppWasm/appsettings.json": {
+    "mtime": 1792184326.330209,
+    "seen": 1792450607.7376745,
+    "ast_hash": "3e5857d5917ae4a44633f9dbdd4eb046",
+    "semantic_hash": "3e5857d5917ae4a44633f9dbdd4eb046"
+  },
+  "BloodPressureAppWasm/wwwroot/ServiceWorker.js": {
+    "mtime": 1792100729.8917637,
+    "seen": 1792450607.7376823,
+    "ast_hash": "fd001393874ecc5e8b44e9affc711978",
+    "semantic_hash": "fd001393874ecc5e8b44e9affc711978"
+  },
+  "BloodPressureAppWasm/wwwroot/appsettings.json": {
+    "mtime": 1792358262.156552,
+    "seen": 1792450607.7376852,
+    "ast_hash": "3e5857d5917ae4a44633f9dbdd4eb046",
+    "semantic_hash": "3e5857d5917ae4a44633f9dbdd4eb046"
+  },
+  "BloodPressureAppWasm/wwwroot/js/notifications.js": {
+    "mtime": 1792439228.8639808,
+    "seen": 1792450607.7376885,
+    "ast_hash": "ba0b31db6e4abddcdcb6a59cb1821cd0",
+    "semantic_hash": "ba0b31db6e4abddcdcb6a59cb1821cd0"
+  },
+  "BloodPressureAppWasm/wwwroot/js/push-notifications.js": {
+    "mtime": 1792441994.5517929,
+    "seen": 1792450607.7376919,
+    "ast_hash": "543558461a6bfa3ece8325a14c35c4a4",
+    "semantic_hash": "543558461a6bfa3ece8325a14c35c4a4"
+  },
+  "BloodPressureAppWasm/wwwroot/sample-data/weather.json": {
+    "mtime": 1766421979.5724494,
+    "seen": 1792450607.7376952,
+    "ast_hash": "fee50fa5c1dd9bae58d08442e9954fd4",
+    "semantic_hash": "fee50fa5c1dd9bae58d08442e9954fd4"
+  },
+  "BloodPressureAppWasm/wwwroot/service-worker.js": {
+    "mtime": 1792441808.7240992,
+    "seen": 1792450607.737699,
+    "ast_hash": "328aa70194e843ebb16d807653f16e5d",
+    "semantic_hash": "328aa70194e843ebb16d807653f16e5d"
+  },
+  "BloodPressureAppWasm/wwwroot/service-worker.published.js": {
+    "mtime": 1792441953.7926118,
+    "seen": 1792450607.7377024,
+    "ast_hash": "89792640abbeb1f65c901c5b0808f50a",
+    "semantic_hash": "89792640abbeb1f65c901c5b0808f50a"
+  },
+  "BloodPressureAppWasm/repomix-output.md": {
+    "mtime": 1792448661.8465855,
+    "seen": 1792450607.7377064,
+    "ast_hash": "511198991d657eaf5445175ff99c16e9",
+    "semantic_hash": "511198991d657eaf5445175ff99c16e9"
+  },
+  "BloodPressureAppWasm/wwwroot/index.html": {
+    "mtime": 1792442012.4209428,
+    "seen": 1792450607.737711,
+    "ast_hash": "c76943aae09d36249ee124d2271233f7",
+    "semantic_hash": "c76943aae09d36249ee124d2271233f7"
+  },
+  "BloodPressureAppWasm/wwwroot/favicon.png": {
+    "mtime": 1766421978.8065898,
+    "seen": 1792450607.7377145,
+    "ast_hash": "eab4f24ab5ff80be586dcdab8e87dc9c",
+    "semantic_hash": "eab4f24ab5ff80be586dcdab8e87dc9c"
+  },
+  "BloodPressureAppWasm/wwwroot/icon-192.png": {
+    "mtime": 1766421978.808603,
+    "seen": 1792450607.7377186,
+    "ast_hash": "4ed916c575b07ad638ed9dbd55219ad5",
+    "semantic_hash": "4ed916c575b07ad638ed9dbd55219ad5"
+  },
+  "BloodPressureAppWasm/wwwroot/icon-192.svg": {
+    "mtime": 1792359471.6460516,
+    "seen": 1792450607.7377224,
+    "ast_hash": "df0a3270b5df17c25c69ce4349fb731c",
+    "semantic_hash": "df0a3270b5df17c25c69ce4349fb731c"
+  },
+  "BloodPressureAppWasm/wwwroot/icon-512.png": {
+    "mtime": 1766421978.810605,
+    "seen": 1792450607.7377262,
+    "ast_hash": "cb7f217349d010085fff643ad48cfa04",
+    "semantic_hash": "cb7f217349d010085fff643ad48cfa04"
+  },
+  "BloodPressureAppWasm/wwwroot/icon-512.svg": {
+    "mtime": 1792359469.0555885,
+    "seen": 1792450607.7377298,
+    "ast_hash": "a5f6211aafe6dd5c5ada364890f216b7",
+    "semantic_hash": "a5f6211aafe6dd5c5ada364890f216b7"
+  },
+  "BloodPressureAppWasm/wwwroot/images/feature-charts.svg": {
+    "mtime": 1792355326.7844017,
+    "seen": 1792450607.7377336,
+    "ast_hash": "442d5cbfcf3e6bdc64f4d3b0e1ab2dac",
+    "semantic_hash": "442d5cbfcf3e6bdc64f4d3b0e1ab2dac"
+  },
+  "BloodPressureAppWasm/wwwroot/images/feature-export.svg": {
+    "mtime": 1792355329.1524918,
+    "seen": 1792450607.7377372,
+    "ast_hash": "dfec9add0fc08b8b7c561b0be4db9ce1",
+    "semantic_hash": "dfec9add0fc08b8b7c561b0be4db9ce1"
+  },
+  "BloodPressureAppWasm/wwwroot/images/feature-input.svg": {
+    "mtime": 1792355324.3582034,
+    "seen": 1792450607.7377408,
+    "ast_hash": "61a4aadc1ec5e931d53f4234bfdd91aa",
+    "semantic_hash": "61a4aadc1ec5e931d53f4234bfdd91aa"
+  },
+  "BloodPressureAppWasm/wwwroot/images/hero-bp.svg": {
+    "mtime": 1792355321.4765174,
+    "seen": 1792450607.7377443,
+    "ast_hash": "305e9ae8d4ae6f3654fc1833d8b044cb",
+    "semantic_hash": "305e9ae8d4ae6f3654fc1833d8b044cb"
+  }
+}

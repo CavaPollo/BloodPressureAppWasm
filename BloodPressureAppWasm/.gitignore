@@ -1,0 +1,41 @@
+## .NET / Visual Studio
+/[Bb]in/
+/[Oo]bj/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Blazor WebAssembly / Published Output
+/dist/
+/wwwroot/_framework/
+/wwwroot/dist/
+/wwwroot/publish/
+
+## User Secrets & Local Settings
+appsettings.Development.json
+appsettings.Local.json
+.secret/
+
+## Node & Frontend Tooling (se usi npm/libman nella root)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## OS Generated Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.apple-double/
+
+## IDE / Editor specific
+.vscode/
+.idea/
+
+## Claude & Local AI Tools (per sicurezza)
+.claude-mem/
+.graphify/

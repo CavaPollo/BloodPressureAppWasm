@@ -1,0 +1,151 @@
+@using BloodPressureAppLibrary
+@using MudBlazor
+
+@inject IDialogService DialogService
+
+<MudForm @ref="form">
+    <MudGrid Spacing="3">
+        <MudItem xs="12" sm="6">
+            <MudTextField @bind-Value="Therapy.Name" Label="Nome Farmaco/Terapia" Required="true" Variant="Variant.Outlined" Class="w-100" />
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudSelect T="TherapyType" @bind-Value="Therapy.Type" Label="Tipo" Required="true" Variant="Variant.Outlined" Class="w-100">
+                @foreach (var type in Enum.GetValues<TherapyType>())
+                {
+                    <MudSelectItem Value="@type">@type</MudSelectItem>
+                }
+            </MudSelect>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudTextField @bind-Value="Therapy.Dosage" Label="Dosaggio" Variant="Variant.Outlined" Class="w-100" Placeholder="es. 10mg, 1 compressa" />
+        </MudItem>
+
+        <!-- Frequenza strutturata -->
+        <MudItem xs="12" sm="6">
+            <MudSelect T="FrequencyType" @bind-Value="Therapy.FrequencyType" Label="Frequenza" Required="true" Variant="Variant.Outlined" Class="w-100">
+                <MudSelectItem Value="@FrequencyType.OnceDaily">1 volta al giorno</MudSelectItem>
+                <MudSelectItem Value="@FrequencyType.TwiceDaily">2 volte al giorno (mattina/sera)</MudSelectItem>
+                <MudSelectItem Value="@FrequencyType.ThreeTimesDaily">3 volte al giorno (mattina/pomeriggio/sera)</MudSelectItem>
+                <MudSelectItem Value="@FrequencyType.EveryXHours">Ogni X ore</MudSelectItem>
+                <MudSelectItem Value="@FrequencyType.CustomTimes">Orari personalizzati</MudSelectItem>
+            </MudSelect>
+        </MudItem>
+
+        <!-- Campo "Ogni X ore" -->
+        <MudItem xs="12" sm="6" Class="@(Therapy.FrequencyType == FrequencyType.EveryXHours ? "" : "d-none")">
+            <MudNumericField @bind-Value="Therapy.EveryHours" Label="Ogni quante ore" Min="1" Max="23" Variant="Variant.Outlined" Class="w-100" Required="true" />
+        </MudItem>
+
+        <!-- Orari personalizzati -->
+        <MudItem xs="12" Class="@(Therapy.FrequencyType == FrequencyType.CustomTimes ? "" : "d-none")">
+            <MudText Typo="Typo.body2" Class="mb-2">Orari delle dosi (formato HH:mm, uno per riga):</MudText>
+            <MudTextField @bind-Value="customTimesText" Label="Orari" Variant="Variant.Outlined" MultiLine="true" Rows="4" Class="w-100" Placeholder="08:00&#10;14:00&#10;20:00" HelperText="Un orario per riga, formato 24h (es. 08:00)" />
+        </MudItem>
+
+        <MudItem xs="12">
+            <MudTextField @bind-Value="Therapy.Instructions" Label="Istruzioni" Variant="Variant.Outlined" Class="w-100" Placeholder="es. Dopo i pasti, a stomaco vuoto" />
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudDatePicker @bind-Date="startDate" Label="Data Inizio" Variant="Variant.Outlined" Class="w-100" />
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudDatePicker @bind-Date="endDate" Label="Data Fine (opzionale)" Variant="Variant.Outlined" Class="w-100" />
+        </MudItem>
+        <MudItem xs="12">
+            <MudSwitch @bind-Checked="Therapy.IsActive" Label="Terapia Attiva" Color="Color.Success" T="bool" />
+        </MudItem>
+        <MudItem xs="12">
+            <MudTextField @bind-Value="Therapy.Notes" Label="Note" Variant="Variant.Outlined" MultiLine="true" Rows="3" Class="w-100" />
+        </MudItem>
+    </MudGrid>
+</MudForm>
+
+@code {
+    [CascadingParameter]
+    public IMudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public Therapy? Therapy { get; set; }
+
+    [Parameter]
+    public bool IsNew { get; set; }
+
+    private MudForm? form;
+    private DateTime? startDate;
+    private DateTime? endDate;
+    private string customTimesText = "";
+
+    protected override void OnInitialized()
+    {
+        if (Therapy == null)
+        {
+            Therapy = new Therapy();
+            startDate = DateTime.Today;
+        }
+        else
+        {
+            startDate = Therapy.StartDate;
+            endDate = Therapy.EndDate;
+
+            // Popola il testo degli orari personalizzati
+            if (Therapy.FrequencyType == FrequencyType.CustomTimes && Therapy.CustomTimes.Any())
+            {
+                customTimesText = string.Join(Environment.NewLine,
+                    Therapy.CustomTimes.OrderBy(t => t).Select(t => t.ToString("HH:mm")));
+            }
+        }
+    }
+
+    private void UpdateDates()
+    {
+        if (Therapy != null)
+        {
+            Therapy.StartDate = startDate ?? DateTime.Today;
+            Therapy.EndDate = endDate;
+
+            // Parsa orari personalizzati
+            if (Therapy.FrequencyType == FrequencyType.CustomTimes)
+            {
+                Therapy.CustomTimes = ParseCustomTimes(customTimesText);
+            }
+        }
+    }
+
+    private List<TimeOnly> ParseCustomTimes(string text)
+    {
+        var times = new List<TimeOnly>();
+        if (string.IsNullOrWhiteSpace(text)) return times;
+
+        var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in lines)
+        {
+            var trimmed = line.Trim();
+            if (TimeOnly.TryParse(trimmed, out var time))
+            {
+                times.Add(time);
+            }
+        }
+        return times.OrderBy(t => t).ToList();
+    }
+
+    public void Cancel()
+    {
+        MudDialog.Cancel();
+    }
+
+    public async Task Submit()
+    {
+        UpdateDates();
+
+        if (form != null)
+        {
+            await form.Validate();
+            if (!form.IsValid) return;
+        }
+
+        // Aggiorna anche il campo legacy Frequency per compatibilità display
+        Therapy.Frequency = Therapy.GetFrequencyDisplay();
+
+        MudDialog.Close(DialogResult.Ok(Therapy));
+    }
+}

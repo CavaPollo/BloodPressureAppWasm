@@ -1,0 +1,41 @@
+# Cartelle di build e file temporanei .NET / Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# DLL e librerie generate dal build / runtime (inutili come sorgente)
+**/*.dll
+**/*.so
+**/*.dylib
+**/*.a
+**/*.pdb
+**/*.wrp
+**/*.deps.json
+**/*.runtimeconfig.json
+
+# Cartelle di runtime generate da Blazor / browser
+**/_framework/
+**/runtimes/
+**/packages/
+**/.nuget/
+node_modules/
+
+# Asset statici, immagini e librerie JS/CSS di terze parti
+wwwroot/lib/
+wwwroot/css/
+wwwroot/*.png
+wwwroot/*.ico
+wwwroot/manifest.webmanifest
+wwwroot/sample-data/
+
+# File temporanei di pubblicazione
+PublishProfiles/
+AppPackages/
+BundleArtifacts/
+
+# Pagine e componenti di default/esempio del template Blazor
+Pages/Counter.razor
+Pages/Weather.razor

@@ -1,0 +1,1716 @@
+{
+  "communities": {
+    "0": [
+      "bloodpressure",
+      "bloodpressureappwasm_pages_therapies",
+      "bloodpressureappwasm_pages_therapies_deletetherapy",
+      "bloodpressureappwasm_pages_therapies_loadtherapiesasync",
+      "bloodpressureappwasm_pages_therapies_oninitializedasync",
+      "bloodpressureappwasm_pages_therapies_opentherapydialog",
+      "bloodpressureappwasm_pages_therapies_parsefrequencytotimes",
+      "bloodpressureappwasm_pages_therapies_razor_bloodpressureappwasm_components",
+      "bloodpressureappwasm_pages_therapies_razor_dialogcontent",
+      "bloodpressureappwasm_pages_therapies_razor_microsoft_aspnetcore_components_authorization",
+      "bloodpressureappwasm_pages_therapies_razor_microsoft_aspnetcore_http",
+      "bloodpressureappwasm_pages_therapies_razor_mudbutton",
+      "bloodpressureappwasm_pages_therapies_razor_mudcard",
+      "bloodpressureappwasm_pages_therapies_razor_mudcardactions",
+      "bloodpressureappwasm_pages_therapies_razor_mudcardcontent",
+      "bloodpressureappwasm_pages_therapies_razor_mudchip",
+      "bloodpressureappwasm_pages_therapies_razor_mudcontainer",
+      "bloodpressureappwasm_pages_therapies_razor_mudgrid",
+      "bloodpressureappwasm_pages_therapies_razor_mudicon",
+      "bloodpressureappwasm_pages_therapies_razor_mudiconbutton",
+      "bloodpressureappwasm_pages_therapies_razor_muditem",
+      "bloodpressureappwasm_pages_therapies_razor_mudpaper",
+      "bloodpressureappwasm_pages_therapies_razor_mudstack",
+      "bloodpressureappwasm_pages_therapies_razor_mudtext",
+      "bloodpressureappwasm_pages_therapies_razor_pagetitle",
+      "bloodpressureappwasm_pages_therapies_razor_therapy",
+      "bloodpressureappwasm_pages_therapies_savetherapy",
+      "bloodpressureappwasm_pages_therapies_setreminder",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice_cancelnotificationasync",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice_initializeasync",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice_retrypendingsubscriptionsasync",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice_savesubscriptionlocallyasync",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice_schedulelocalnotificationasync",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushnotificationservice_sendsubscriptiontoserverasync",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscription",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscription_endpoint",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscription_expirationtime",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscription_keys",
+      "bloodpressureappwasm_services_reminderservice_bloodpressureappwasm_services_reminderservice",
+      "bloodpressureappwasm_services_reminderservice_bloodpressureappwasm_services_reminderservice_deletetherapyasync",
+      "bloodpressureappwasm_services_reminderservice_bloodpressureappwasm_services_reminderservice_enqueuetherapyasync",
+      "bloodpressureappwasm_services_reminderservice_bloodpressureappwasm_services_reminderservice_gettherapiesasync",
+      "bloodpressureappwasm_services_reminderservice_bloodpressureappwasm_services_reminderservice_syncpendingtherapiesasync",
+      "bloodpressureappwasm_services_syncservice_bloodpressureappwasm_services_syncservice",
+      "bloodpressureappwasm_services_syncservice_bloodpressureappwasm_services_syncservice_enqueuemeasurementasync",
+      "bloodpressureappwasm_services_syncservice_bloodpressureappwasm_services_syncservice_getofflinequeueasync",
+      "bloodpressureappwasm_services_syncservice_bloodpressureappwasm_services_syncservice_syncpendingdataasync",
+      "datetime",
+      "ihttpclientfactory",
+      "list",
+      "mongodb_bson",
+      "route_therapies",
+      "task",
+      "timespan"
+    ],
+    "1": [
+      "bootstrap_breakpoints",
+      "bootstrap_button_outline_variant",
+      "bootstrap_col",
+      "bootstrap_col_1_12",
+      "bootstrap_col_auto",
+      "bootstrap_color_system",
+      "bootstrap_component_variables",
+      "bootstrap_components",
+      "bootstrap_container",
+      "bootstrap_container_fluid",
+      "bootstrap_container_lg",
+      "bootstrap_container_md",
+      "bootstrap_container_sm",
+      "bootstrap_container_xl",
+      "bootstrap_container_xxl",
+      "bootstrap_css_variables",
+      "bootstrap_display",
+      "bootstrap_display_utilities",
+      "bootstrap_flex",
+      "bootstrap_flex_utilities",
+      "bootstrap_focus_ring",
+      "bootstrap_framework",
+      "bootstrap_gray_scale",
+      "bootstrap_grid",
+      "bootstrap_grid_system",
+      "bootstrap_gutter",
+      "bootstrap_make_col",
+      "bootstrap_make_row",
+      "bootstrap_mixins",
+      "bootstrap_offset",
+      "bootstrap_reboot",
+      "bootstrap_responsive_utilities",
+      "bootstrap_root_variables",
+      "bootstrap_row",
+      "bootstrap_row_column",
+      "bootstrap_rtl",
+      "bootstrap_rtl_support",
+      "bootstrap_sass_mixins",
+      "bootstrap_scss_mixins",
+      "bootstrap_spacing",
+      "bootstrap_spacing_system",
+      "bootstrap_spacing_utilities",
+      "bootstrap_table",
+      "bootstrap_table_variant",
+      "bootstrap_theme_colors",
+      "bootstrap_transition_system",
+      "bootstrap_typography_system",
+      "bootstrap_utilities",
+      "bootstrap_utilities_api",
+      "bootstrap_utility_api",
+      "bootstrap_zindex_stack",
+      "wwwroot_lib_bootstrap_dist_css_bootstrap_min_css",
+      "wwwroot_lib_bootstrap_dist_css_bootstrap_min_css_map"
+    ],
+    "2": [
+      "bloodpressureappwasm_pages_bloodpressure",
+      "bloodpressureappwasm_pages_bloodpressure_clearpopover",
+      "bloodpressureappwasm_pages_bloodpressure_exportcsv",
+      "bloodpressureappwasm_pages_bloodpressure_oninitializedasync",
+      "bloodpressureappwasm_pages_bloodpressure_onperiodchanged",
+      "bloodpressureappwasm_pages_bloodpressure_onyearchanged",
+      "bloodpressureappwasm_pages_bloodpressure_openpopover",
+      "bloodpressureappwasm_pages_bloodpressure_razor_authorized",
+      "bloodpressureappwasm_pages_bloodpressure_razor_authorizeview",
+      "bloodpressureappwasm_pages_bloodpressure_razor_microsoft_aspnetcore_components_authorization",
+      "bloodpressureappwasm_pages_bloodpressure_razor_microsoft_aspnetcore_http",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudalert",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudbutton",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudcontainer",
+      "bloodpressureappwasm_pages_bloodpressure_razor_muddatepicker",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudform",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudgrid",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudicon",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudiconbutton",
+      "bloodpressureappwasm_pages_bloodpressure_razor_muditem",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudnumericfield",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudpaper",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudselect",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudselectitem",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudstack",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudtext",
+      "bloodpressureappwasm_pages_bloodpressure_razor_mudtextfield",
+      "bloodpressureappwasm_pages_bloodpressure_razor_notauthorized",
+      "bloodpressureappwasm_pages_bloodpressure_razor_pagetitle",
+      "bloodpressureappwasm_pages_bloodpressure_submitform",
+      "bloodpressureappwasm_pages_bloodpressure_updatechartdata",
+      "chartseries",
+      "loading",
+      "mudblazor_charts",
+      "mudchart",
+      "mudpopover",
+      "mudspacer",
+      "mudtoolbar",
+      "system_globalization",
+      "system_text"
+    ],
+    "3": [
+      "concept_bootstrap_color_system",
+      "concept_css_custom_properties",
+      "concept_important_utilities",
+      "concept_local_css_vars",
+      "concept_responsive_breakpoints",
+      "concept_rfs_rescaling",
+      "concept_rtl_support",
+      "concept_utility_generator",
+      "scss_helpers_color_bg",
+      "scss_helpers_colored_links",
+      "scss_helpers_focus_ring",
+      "scss_helpers_icon_link",
+      "scss_helpers_position",
+      "scss_helpers_ratio",
+      "scss_helpers_stacks",
+      "scss_helpers_stretched_link",
+      "scss_helpers_text_truncation",
+      "scss_helpers_visually_hidden",
+      "scss_helpers_vr",
+      "scss_mixins_breakpoints",
+      "scss_mixins_transition",
+      "scss_mixins_utilities",
+      "scss_root",
+      "scss_utilities_api",
+      "scss_vendor_rfs",
+      "utility_category_border",
+      "utility_category_color",
+      "utility_category_display",
+      "utility_category_flexbox",
+      "utility_category_interactions",
+      "utility_category_position",
+      "utility_category_print",
+      "utility_category_ratios",
+      "utility_category_shadow",
+      "utility_category_spacing",
+      "utility_category_typography",
+      "utility_category_visibility",
+      "wwwroot_lib_bootstrap_dist_css_bootstrap_utilities_min_css",
+      "wwwroot_lib_bootstrap_dist_css_bootstrap_utilities_min_css_map"
+    ],
+    "4": [
+      "bloodpressureappwasm_repomix_output_components_accordion",
+      "bloodpressureappwasm_repomix_output_components_alert",
+      "bloodpressureappwasm_repomix_output_components_badge",
+      "bloodpressureappwasm_repomix_output_components_buttons",
+      "bloodpressureappwasm_repomix_output_components_cards",
+      "bloodpressureappwasm_repomix_output_components_carousel",
+      "bloodpressureappwasm_repomix_output_components_dropdown",
+      "bloodpressureappwasm_repomix_output_components_forms",
+      "bloodpressureappwasm_repomix_output_components_listgroup",
+      "bloodpressureappwasm_repomix_output_components_modal",
+      "bloodpressureappwasm_repomix_output_components_navbar",
+      "bloodpressureappwasm_repomix_output_components_offcanvas",
+      "bloodpressureappwasm_repomix_output_components_popover",
+      "bloodpressureappwasm_repomix_output_components_progress",
+      "bloodpressureappwasm_repomix_output_components_spinners",
+      "bloodpressureappwasm_repomix_output_components_toast",
+      "bloodpressureappwasm_repomix_output_components_tooltip",
+      "bloodpressureappwasm_repomix_output_functions_breakpoint",
+      "bloodpressureappwasm_repomix_output_functions_color",
+      "bloodpressureappwasm_repomix_output_functions_valid_radius",
+      "bloodpressureappwasm_repomix_output_mixins_border_radius",
+      "bloodpressureappwasm_repomix_output_mixins_buttons",
+      "bloodpressureappwasm_repomix_output_mixins_forms",
+      "bloodpressureappwasm_repomix_output_mixins_gradients",
+      "bloodpressureappwasm_repomix_output_mixins_grid",
+      "bloodpressureappwasm_repomix_output_mixins_pagination",
+      "bloodpressureappwasm_repomix_output_mixins_tables",
+      "bloodpressureappwasm_repomix_output_mixins_transitions",
+      "bloodpressureappwasm_repomix_output_utilities_caret",
+      "bloodpressureappwasm_repomix_output_utilities_clearfix",
+      "bloodpressureappwasm_repomix_output_utilities_reset_text",
+      "bloodpressureappwasm_repomix_output_variables_borders",
+      "bloodpressureappwasm_repomix_output_variables_breakpoints",
+      "bloodpressureappwasm_repomix_output_variables_colors",
+      "bloodpressureappwasm_repomix_output_variables_shadows",
+      "bloodpressureappwasm_repomix_output_variables_spacing",
+      "bloodpressureappwasm_repomix_output_variables_typography",
+      "bloodpressureappwasm_repomix_output_variables_zindex"
+    ],
+    "5": [
+      "bloodpressureappwasm_tests_therapydialogtests",
+      "bloodpressureappwasm_tests_therapydialogtests_dialogcontent_hidesconditionalfields_whennotselected",
+      "bloodpressureappwasm_tests_therapydialogtests_dialogcontent_renderscorrectly_wheneditingtherapy",
+      "bloodpressureappwasm_tests_therapydialogtests_dialogcontent_renderscorrectly_whennewtherapy",
+      "bloodpressureappwasm_tests_therapydialogtests_dialogcontent_showscustomtimesfield_whencustomtimesselected",
+      "bloodpressureappwasm_tests_therapydialogtests_dialogcontent_showseveryhoursfield_wheneveryxhoursselected",
+      "bloodpressureappwasm_tests_therapydialogtests_dialogcontent_submit_callsmuddialogclose_withtherapy",
+      "bloodpressureappwasm_tests_therapydialogtests_razor_bloodpressureapplibrary",
+      "bloodpressureappwasm_tests_therapydialogtests_razor_bloodpressureappwasm_components",
+      "bloodpressureappwasm_tests_therapydialogtests_razor_dialogcontent",
+      "bloodpressureappwasm_tests_therapydialogtests_razor_mudblazor",
+      "bloodpressureappwasm_tests_therapydialogtests_razor_pagetitle",
+      "bloodpressureappwasm_tests_therapydialogtests_razor_timeonly",
+      "bloodpressureappwasm_tests_therapymodeltests",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_customtimes_orderedcorrectly",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_defaultvalues_arecorrect",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_customtimes_returnscustomtimes",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_customtimesempty_fallbackstodefault",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_everyxhours_returnscorrecttimes",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_everyxhours_withdifferentintervals",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_oncedaily_returnssingletime",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_threetimesdaily_returnsthreetimes",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getdosetimes_twicedaily_returnstwotimes",
+      "bloodpressureappwasm_tests_therapymodeltests_bloodpressureappwasm_tests_therapymodeltests_therapy_getfrequencydisplay_returnscorrectstring",
+      "bloodpressureappwasm_tests_unittest1",
+      "bloodpressureappwasm_tests_unittest1_bloodpressureappwasm_tests_unittest1",
+      "bloodpressureappwasm_tests_unittest1_bloodpressureappwasm_tests_unittest1_test1",
+      "bunit",
+      "csharp_namespace:9265cb6cc9f88112",
+      "fact",
+      "microsoft_extensions_dependencyinjection",
+      "moq",
+      "xunit"
+    ],
+    "6": [
+      "authenticationstateprovider",
+      "bloodpressureappwasm_pages_user",
+      "bloodpressureappwasm_pages_user_loadprofileasync",
+      "bloodpressureappwasm_pages_user_oninitializedasync",
+      "bloodpressureappwasm_pages_user_razor_authorized",
+      "bloodpressureappwasm_pages_user_razor_authorizeview",
+      "bloodpressureappwasm_pages_user_razor_bloodpressureapplibrary",
+      "bloodpressureappwasm_pages_user_razor_microsoft_aspnetcore_components_authorization",
+      "bloodpressureappwasm_pages_user_razor_mudalert",
+      "bloodpressureappwasm_pages_user_razor_mudbutton",
+      "bloodpressureappwasm_pages_user_razor_mudcontainer",
+      "bloodpressureappwasm_pages_user_razor_muddatepicker",
+      "bloodpressureappwasm_pages_user_razor_mudform",
+      "bloodpressureappwasm_pages_user_razor_mudgrid",
+      "bloodpressureappwasm_pages_user_razor_mudicon",
+      "bloodpressureappwasm_pages_user_razor_muditem",
+      "bloodpressureappwasm_pages_user_razor_mudnumericfield",
+      "bloodpressureappwasm_pages_user_razor_mudpaper",
+      "bloodpressureappwasm_pages_user_razor_mudprogresscircular",
+      "bloodpressureappwasm_pages_user_razor_mudselect",
+      "bloodpressureappwasm_pages_user_razor_mudselectitem",
+      "bloodpressureappwasm_pages_user_razor_mudstack",
+      "bloodpressureappwasm_pages_user_razor_mudtext",
+      "bloodpressureappwasm_pages_user_razor_mudtextfield",
+      "bloodpressureappwasm_pages_user_razor_notauthorized",
+      "bloodpressureappwasm_pages_user_razor_pagetitle",
+      "bloodpressureappwasm_pages_user_razor_system_net_http_json",
+      "bloodpressureappwasm_pages_user_saveprofile",
+      "isnackbar",
+      "patient",
+      "route_user",
+      "system_security_claims"
+    ],
+    "7": [
+      "bloodpressureappwasm_accordion_button",
+      "bloodpressureappwasm_alert",
+      "bloodpressureappwasm_backdrop",
+      "bloodpressureappwasm_badge",
+      "bloodpressureappwasm_base_component",
+      "bloodpressureappwasm_bootstrap_scss",
+      "bloodpressureappwasm_breadcrumb",
+      "bloodpressureappwasm_carousel",
+      "bloodpressureappwasm_dom_data",
+      "bloodpressureappwasm_dom_event_handler",
+      "bloodpressureappwasm_dropdown",
+      "bloodpressureappwasm_event_handler",
+      "bloodpressureappwasm_focustrap",
+      "bloodpressureappwasm_list_group",
+      "bloodpressureappwasm_manipulator",
+      "bloodpressureappwasm_modal",
+      "bloodpressureappwasm_offcanvas",
+      "bloodpressureappwasm_pagination",
+      "bloodpressureappwasm_popover",
+      "bloodpressureappwasm_progress",
+      "bloodpressureappwasm_repomix_output",
+      "bloodpressureappwasm_scrollbarhelper",
+      "bloodpressureappwasm_scrollspy",
+      "bloodpressureappwasm_selector_engine",
+      "bloodpressureappwasm_tab",
+      "bloodpressureappwasm_templatefactory",
+      "bloodpressureappwasm_toast",
+      "bloodpressureappwasm_tooltip",
+      "bootstrap_css",
+      "custom_scss"
+    ],
+    "8": [
+      "bloodpressureappwasm_repomix_output_bootstrap_alert",
+      "bloodpressureappwasm_repomix_output_bootstrap_backdrop",
+      "bloodpressureappwasm_repomix_output_bootstrap_basecomponent",
+      "bloodpressureappwasm_repomix_output_bootstrap_button",
+      "bloodpressureappwasm_repomix_output_bootstrap_carousel",
+      "bloodpressureappwasm_repomix_output_bootstrap_collapse",
+      "bloodpressureappwasm_repomix_output_bootstrap_componentfunctions",
+      "bloodpressureappwasm_repomix_output_bootstrap_config",
+      "bloodpressureappwasm_repomix_output_bootstrap_data",
+      "bloodpressureappwasm_repomix_output_bootstrap_dropdown",
+      "bloodpressureappwasm_repomix_output_bootstrap_eventhandler",
+      "bloodpressureappwasm_repomix_output_bootstrap_focustrap",
+      "bloodpressureappwasm_repomix_output_bootstrap_indexumd",
+      "bloodpressureappwasm_repomix_output_bootstrap_modal",
+      "bloodpressureappwasm_repomix_output_bootstrap_offcanvas",
+      "bloodpressureappwasm_repomix_output_bootstrap_popover",
+      "bloodpressureappwasm_repomix_output_bootstrap_sanitizer",
+      "bloodpressureappwasm_repomix_output_bootstrap_scrollbarhelper",
+      "bloodpressureappwasm_repomix_output_bootstrap_scrollspy",
+      "bloodpressureappwasm_repomix_output_bootstrap_swipe",
+      "bloodpressureappwasm_repomix_output_bootstrap_tab",
+      "bloodpressureappwasm_repomix_output_bootstrap_templatefactory",
+      "bloodpressureappwasm_repomix_output_bootstrap_toast",
+      "bloodpressureappwasm_repomix_output_bootstrap_tooltip",
+      "bloodpressureappwasm_repomix_output_bootstrap_util_index",
+      "bloodpressureappwasm_repomix_output_popper_createpopper",
+      "bloodpressureappwasm_repomix_output_popper_domutils",
+      "bloodpressureappwasm_repomix_output_popper_modifiers",
+      "bloodpressureappwasm_repomix_output_popper_utils"
+    ],
+    "9": [
+      "bootstrap_rtl_css",
+      "bootstrap_rtl_css_accordion",
+      "bootstrap_rtl_css_alert",
+      "bootstrap_rtl_css_badge",
+      "bootstrap_rtl_css_breadcrumb",
+      "bootstrap_rtl_css_button_group",
+      "bootstrap_rtl_css_button_sizing",
+      "bootstrap_rtl_css_buttons",
+      "bootstrap_rtl_css_card",
+      "bootstrap_rtl_css_carousel",
+      "bootstrap_rtl_css_close_button",
+      "bootstrap_rtl_css_custom_properties",
+      "bootstrap_rtl_css_dropdown",
+      "bootstrap_rtl_css_form_validation",
+      "bootstrap_rtl_css_list_group",
+      "bootstrap_rtl_css_modal",
+      "bootstrap_rtl_css_nav",
+      "bootstrap_rtl_css_offcanvas",
+      "bootstrap_rtl_css_pagination",
+      "bootstrap_rtl_css_popover",
+      "bootstrap_rtl_css_progress",
+      "bootstrap_rtl_css_spinners",
+      "bootstrap_rtl_css_toast",
+      "bootstrap_rtl_css_tooltip",
+      "bootstrap_rtl_css_utilities"
+    ],
+    "10": [
+      "bloodpressureappwasm_components_dialogcontent",
+      "bloodpressureappwasm_components_dialogcontent_cancel",
+      "bloodpressureappwasm_components_dialogcontent_oninitialized",
+      "bloodpressureappwasm_components_dialogcontent_parsecustomtimes",
+      "bloodpressureappwasm_components_dialogcontent_razor_bloodpressureapplibrary",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudblazor",
+      "bloodpressureappwasm_components_dialogcontent_razor_muddatepicker",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudform",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudgrid",
+      "bloodpressureappwasm_components_dialogcontent_razor_muditem",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudnumericfield",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudselect",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudselectitem",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudtext",
+      "bloodpressureappwasm_components_dialogcontent_razor_mudtextfield",
+      "bloodpressureappwasm_components_dialogcontent_razor_timeonly",
+      "bloodpressureappwasm_components_dialogcontent_submit",
+      "bloodpressureappwasm_components_dialogcontent_updatedates",
+      "idialogservice",
+      "mudswitch",
+      "therapytype"
+    ],
+    "11": [
+      "bloodpressureappwasm_pages_login",
+      "bloodpressureappwasm_pages_login_getsafereturnurl",
+      "bloodpressureappwasm_pages_login_handlekeyup",
+      "bloodpressureappwasm_pages_login_issafereturnurl",
+      "bloodpressureappwasm_pages_login_loginuser",
+      "bloodpressureappwasm_pages_login_razor_bloodpressureapplibrary_wasm",
+      "bloodpressureappwasm_pages_login_razor_microsoft_aspnetcore_components_webassembly_http",
+      "bloodpressureappwasm_pages_login_razor_mudalert",
+      "bloodpressureappwasm_pages_login_razor_mudbutton",
+      "bloodpressureappwasm_pages_login_razor_mudgrid",
+      "bloodpressureappwasm_pages_login_razor_mudicon",
+      "bloodpressureappwasm_pages_login_razor_muditem",
+      "bloodpressureappwasm_pages_login_razor_mudlink",
+      "bloodpressureappwasm_pages_login_razor_mudpaper",
+      "bloodpressureappwasm_pages_login_razor_mudprogresscircular",
+      "bloodpressureappwasm_pages_login_razor_mudtext",
+      "bloodpressureappwasm_pages_login_razor_mudtextfield",
+      "bloodpressureappwasm_pages_login_razor_system_net_http_json",
+      "ijsruntime",
+      "jwtresponse",
+      "muddivider"
+    ],
+    "12": [
+      "bloodpressureappwasm_repomix_output_accordion_component",
+      "bloodpressureappwasm_repomix_output_badge_component",
+      "bloodpressureappwasm_repomix_output_breadcrumb_component",
+      "bloodpressureappwasm_repomix_output_btn_close_component",
+      "bloodpressureappwasm_repomix_output_card_component",
+      "bloodpressureappwasm_repomix_output_carousel_component",
+      "bloodpressureappwasm_repomix_output_css_custom_properties",
+      "bloodpressureappwasm_repomix_output_dropdown_component",
+      "bloodpressureappwasm_repomix_output_form_component",
+      "bloodpressureappwasm_repomix_output_modal_component",
+      "bloodpressureappwasm_repomix_output_nav_component",
+      "bloodpressureappwasm_repomix_output_navbar_component",
+      "bloodpressureappwasm_repomix_output_offcanvas_component",
+      "bloodpressureappwasm_repomix_output_pagination_component",
+      "bloodpressureappwasm_repomix_output_popover_component",
+      "bloodpressureappwasm_repomix_output_progress_component",
+      "bloodpressureappwasm_repomix_output_reboot",
+      "bloodpressureappwasm_repomix_output_toast_component",
+      "bloodpressureappwasm_repomix_output_tooltip_component"
+    ],
+    "13": [
+      "bootstrap_badge",
+      "bootstrap_breadcrumb",
+      "bootstrap_btn_base",
+      "bootstrap_card",
+      "bootstrap_close",
+      "bootstrap_form_control",
+      "bootstrap_form_range",
+      "bootstrap_mixin_border_radius",
+      "bootstrap_mixin_box_shadow",
+      "bootstrap_mixin_gradient_bg",
+      "bootstrap_mixin_rfs",
+      "bootstrap_nav_pills",
+      "bootstrap_nav_tabs",
+      "bootstrap_pagination",
+      "bootstrap_popover",
+      "bootstrap_progress",
+      "bootstrap_reset_text",
+      "bootstrap_toast",
+      "bootstrap_tooltip"
+    ],
+    "14": [
+      "bloodpressureappwasm_pages_home",
+      "bloodpressureappwasm_pages_home_razor_authorized",
+      "bloodpressureappwasm_pages_home_razor_authorizeview",
+      "bloodpressureappwasm_pages_home_razor_microsoft_aspnetcore_components_authorization",
+      "bloodpressureappwasm_pages_home_razor_mudbutton",
+      "bloodpressureappwasm_pages_home_razor_mudcard",
+      "bloodpressureappwasm_pages_home_razor_mudcardcontent",
+      "bloodpressureappwasm_pages_home_razor_mudchip",
+      "bloodpressureappwasm_pages_home_razor_mudcontainer",
+      "bloodpressureappwasm_pages_home_razor_mudgrid",
+      "bloodpressureappwasm_pages_home_razor_mudicon",
+      "bloodpressureappwasm_pages_home_razor_muditem",
+      "bloodpressureappwasm_pages_home_razor_mudpaper",
+      "bloodpressureappwasm_pages_home_razor_mudstack",
+      "bloodpressureappwasm_pages_home_razor_mudtext",
+      "bloodpressureappwasm_pages_home_razor_notauthorized",
+      "bloodpressureappwasm_pages_home_razor_pagetitle",
+      "mudimage"
+    ],
+    "15": [
+      "bloodpressureappwasm_properties_launchsettings",
+      "bloodpressureappwasm_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "bloodpressureappwasm_properties_launchsettings_http_applicationurl",
+      "bloodpressureappwasm_properties_launchsettings_http_commandname",
+      "bloodpressureappwasm_properties_launchsettings_http_dotnetrunmessages",
+      "bloodpressureappwasm_properties_launchsettings_http_environmentvariables",
+      "bloodpressureappwasm_properties_launchsettings_http_inspecturi",
+      "bloodpressureappwasm_properties_launchsettings_http_launchbrowser",
+      "bloodpressureappwasm_properties_launchsettings_https_applicationurl",
+      "bloodpressureappwasm_properties_launchsettings_https_commandname",
+      "bloodpressureappwasm_properties_launchsettings_https_dotnetrunmessages",
+      "bloodpressureappwasm_properties_launchsettings_https_environmentvariables",
+      "bloodpressureappwasm_properties_launchsettings_https_inspecturi",
+      "bloodpressureappwasm_properties_launchsettings_https_launchbrowser",
+      "bloodpressureappwasm_properties_launchsettings_profiles",
+      "bloodpressureappwasm_properties_launchsettings_profiles_http",
+      "bloodpressureappwasm_properties_launchsettings_profiles_https",
+      "bloodpressureappwasm_properties_launchsettings_schema"
+    ],
+    "16": [
+      "bootstrap_accordion",
+      "bootstrap_carousel",
+      "bootstrap_clearfix",
+      "bootstrap_form_check",
+      "bootstrap_form_floating",
+      "bootstrap_form_select",
+      "bootstrap_form_switch",
+      "bootstrap_form_validation",
+      "bootstrap_form_validation_state",
+      "bootstrap_input_group",
+      "bootstrap_mixin_escape_svg",
+      "bootstrap_mixin_transition",
+      "bootstrap_nav",
+      "bootstrap_nav_base",
+      "bootstrap_placeholder",
+      "bootstrap_spinner",
+      "bootstrap_transition",
+      "bootstrap_variables_zindex"
+    ],
+    "17": [
+      "bootstrap_alert",
+      "bootstrap_breakpoint_infix",
+      "bootstrap_breakpoint_max",
+      "bootstrap_breakpoint_min",
+      "bootstrap_breakpoint_next",
+      "bootstrap_color_mode",
+      "bootstrap_generate_utility",
+      "bootstrap_grid_breakpoints",
+      "bootstrap_make_col_auto",
+      "bootstrap_make_col_offset",
+      "bootstrap_make_cssgrid",
+      "bootstrap_make_grid_columns",
+      "bootstrap_media_breakpoint_between",
+      "bootstrap_media_breakpoint_only",
+      "bootstrap_media_breakpoint_up",
+      "bootstrap_navbar",
+      "bootstrap_rfs",
+      "bootstrap_row_cols"
+    ],
+    "18": [
+      "base_component",
+      "component_alert",
+      "component_button",
+      "component_carousel",
+      "component_collapse",
+      "component_dropdown",
+      "component_modal",
+      "component_offcanvas",
+      "component_popover",
+      "component_scrollspy",
+      "component_tab",
+      "component_tooltip",
+      "util_backdrop",
+      "util_focustrap",
+      "util_scrollbar",
+      "util_swipe",
+      "util_template_factory"
+    ],
+    "19": [
+      "js_src_alert",
+      "js_src_base_component",
+      "js_src_button",
+      "js_src_carousel",
+      "js_src_collapse",
+      "js_src_dropdown",
+      "js_src_modal",
+      "js_src_offcanvas",
+      "js_src_popover",
+      "js_src_scrollspy",
+      "js_src_tooltip",
+      "js_src_util_backdrop",
+      "js_src_util_config",
+      "js_src_util_focustrap",
+      "js_src_util_scrollbar",
+      "js_src_util_swipe",
+      "js_src_util_template_factory"
+    ],
+    "20": [
+      "bloodpressureappwasm_repomixoutput_alert",
+      "bloodpressureappwasm_repomixoutput_backdrop",
+      "bloodpressureappwasm_repomixoutput_basecomponent",
+      "bloodpressureappwasm_repomixoutput_button",
+      "bloodpressureappwasm_repomixoutput_carousel",
+      "bloodpressureappwasm_repomixoutput_collapse",
+      "bloodpressureappwasm_repomixoutput_dropdown",
+      "bloodpressureappwasm_repomixoutput_focustrap",
+      "bloodpressureappwasm_repomixoutput_modal",
+      "bloodpressureappwasm_repomixoutput_offcanvas",
+      "bloodpressureappwasm_repomixoutput_popover",
+      "bloodpressureappwasm_repomixoutput_scrollspy",
+      "bloodpressureappwasm_repomixoutput_tab",
+      "bloodpressureappwasm_repomixoutput_templatefactory",
+      "bloodpressureappwasm_repomixoutput_toast",
+      "bloodpressureappwasm_repomixoutput_tooltip"
+    ],
+    "21": [
+      "bloodpressureappwasm_wwwroot_service_worker_published",
+      "bloodpressureappwasm_wwwroot_service_worker_published_baseurl",
+      "bloodpressureappwasm_wwwroot_service_worker_published_manifesturllist",
+      "bloodpressureappwasm_wwwroot_service_worker_published_offlineassetsexclude",
+      "bloodpressureappwasm_wwwroot_service_worker_published_offlineassetsinclude",
+      "bloodpressureappwasm_wwwroot_service_worker_published_onactivate",
+      "bloodpressureappwasm_wwwroot_service_worker_published_onfetch",
+      "bloodpressureappwasm_wwwroot_service_worker_published_oninstall",
+      "bloodpressureappwasm_wwwroot_service_worker_published_onmessage",
+      "bloodpressureappwasm_wwwroot_service_worker_published_onnotificationclick",
+      "bloodpressureappwasm_wwwroot_service_worker_published_onpush",
+      "bloodpressureappwasm_wwwroot_service_worker_published_reschedulenotification",
+      "bloodpressureappwasm_wwwroot_service_worker_published_schedulelocalnotification",
+      "bloodpressureappwasm_wwwroot_service_worker_published_subscribetopush",
+      "bloodpressureappwasm_wwwroot_service_worker_published_urlbase64touint8array"
+    ],
+    "22": [
+      "bloodpressureappwasm_layout_mainlayout",
+      "bloodpressureappwasm_layout_mainlayout_darkmodetoggle",
+      "bloodpressureappwasm_layout_mainlayout_drawertoggle",
+      "bloodpressureappwasm_layout_mainlayout_oninitialized",
+      "bloodpressureappwasm_layout_mainlayout_razor_mudtext",
+      "mudappbar",
+      "muddialogprovider",
+      "muddrawer",
+      "mudlayout",
+      "mudmaincontent",
+      "mudpopoverprovider",
+      "mudsnackbarprovider",
+      "mudthemeprovider",
+      "navmenu"
+    ],
+    "23": [
+      "bloodpressureappwasm_pages_forgotpassword",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudalert",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudbutton",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudcard",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudcardactions",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudcardcontent",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudgrid",
+      "bloodpressureappwasm_pages_forgotpassword_razor_muditem",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudlink",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudtext",
+      "bloodpressureappwasm_pages_forgotpassword_razor_mudtextfield",
+      "bloodpressureappwasm_pages_forgotpassword_razor_system_net_http_json",
+      "bloodpressureappwasm_pages_forgotpassword_submit",
+      "route_forgot_password"
+    ],
+    "24": [
+      "bloodpressureappwasm_repomix_output_bootstrap_grid_system",
+      "bloodpressureappwasm_repomix_output_caret",
+      "bloodpressureappwasm_repomix_output_css_grid_support",
+      "bloodpressureappwasm_repomix_output_dropdown",
+      "bloodpressureappwasm_repomix_output_grid_breakpoints",
+      "bloodpressureappwasm_repomix_output_grid_containers",
+      "bloodpressureappwasm_repomix_output_grid_gutters",
+      "bloodpressureappwasm_repomix_output_grid_rows_columns",
+      "bloodpressureappwasm_repomix_output_list_group",
+      "bloodpressureappwasm_repomix_output_media_breakpoint_up",
+      "bloodpressureappwasm_repomix_output_print_utilities",
+      "bloodpressureappwasm_repomix_output_scss_functions",
+      "bloodpressureappwasm_repomix_output_scss_mixins",
+      "bloodpressureappwasm_repomix_output_utility_generation"
+    ],
+    "25": [
+      "bloodpressureappwasm_pages_resetpassword",
+      "bloodpressureappwasm_pages_resetpassword_oninitialized",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudalert",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudbutton",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudcard",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudcardcontent",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudgrid",
+      "bloodpressureappwasm_pages_resetpassword_razor_muditem",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudtext",
+      "bloodpressureappwasm_pages_resetpassword_razor_mudtextfield",
+      "bloodpressureappwasm_pages_resetpassword_razor_system_net_http_json",
+      "bloodpressureappwasm_pages_resetpassword_submit",
+      "route_reset_password"
+    ],
+    "26": [
+      "bloodpressureappwasm_repomix_output_alert_component",
+      "bloodpressureappwasm_repomix_output_bootstrap_reboot",
+      "bloodpressureappwasm_repomix_output_bootstrap_root_variables",
+      "bloodpressureappwasm_repomix_output_bootstrap_utilities",
+      "bloodpressureappwasm_repomix_output_button_component",
+      "bloodpressureappwasm_repomix_output_color_mode_mixin",
+      "bloodpressureappwasm_repomix_output_color_system",
+      "bloodpressureappwasm_repomix_output_dark_mode_variables",
+      "bloodpressureappwasm_repomix_output_forms_reboot",
+      "bloodpressureappwasm_repomix_output_list_group_component",
+      "bloodpressureappwasm_repomix_output_typography",
+      "concept_dark_mode",
+      "scss_mixins_color_mode"
+    ],
+    "27": [
+      "bloodpressureappwasm_repomix_output_bootstrap_variables",
+      "bloodpressureappwasm_repomix_output_border_radius_mixins",
+      "bloodpressureappwasm_repomix_output_border_radius_variables",
+      "bloodpressureappwasm_repomix_output_breakpoint_functions",
+      "bloodpressureappwasm_repomix_output_button_variables",
+      "bloodpressureappwasm_repomix_output_color_variables",
+      "bloodpressureappwasm_repomix_output_component_variables",
+      "bloodpressureappwasm_repomix_output_grid_mixins",
+      "bloodpressureappwasm_repomix_output_spacing_variables",
+      "bloodpressureappwasm_repomix_output_table_component",
+      "bloodpressureappwasm_repomix_output_transition_mixin",
+      "bloodpressureappwasm_repomix_output_typography_variables",
+      "bloodpressureappwasm_repomix_output_zindex_variables"
+    ],
+    "28": [
+      "bloodpressureappwasm_repomix_output_enable_dark_mode",
+      "bloodpressureappwasm_repomix_output_enable_gradients",
+      "bloodpressureappwasm_repomix_output_enable_reduced_motion",
+      "bloodpressureappwasm_repomix_output_enable_transitions",
+      "bloodpressureappwasm_repomix_output_fade_collapse",
+      "bloodpressureappwasm_repomix_output_form_check",
+      "bloodpressureappwasm_repomix_output_form_floating",
+      "bloodpressureappwasm_repomix_output_gradient_bg",
+      "bloodpressureappwasm_repomix_output_gradient_striped",
+      "bloodpressureappwasm_repomix_output_pagination",
+      "bloodpressureappwasm_repomix_output_pagination_size",
+      "bloodpressureappwasm_repomix_output_progress",
+      "bloodpressureappwasm_repomix_output_transition"
+    ],
+    "29": [
+      "bootstrap_js_alert",
+      "bootstrap_js_base_component",
+      "bootstrap_js_button",
+      "bootstrap_js_carousel",
+      "bootstrap_js_collapse",
+      "bootstrap_js_component_functions",
+      "bootstrap_js_config",
+      "bootstrap_js_data",
+      "bootstrap_js_event_handler",
+      "bootstrap_js_manipulator",
+      "bootstrap_js_selector_engine",
+      "bootstrap_js_swipe",
+      "bootstrap_js_util_index"
+    ],
+    "30": [
+      "bloodpressureappwasm_bloodpressureappwasm",
+      "bloodpressureappwasm_bloodpressureappwasm_csproj_framework_net10_0",
+      "bloodpressureappwasm_slnx_bloodpressureappwasm",
+      "ext_bloodpressureapp_bloodpressureapplibrary_bloodpressureapplibrary_csproj",
+      "ext_bloodpressureapp_bloodpressureapplibrary_tests_bloodpressureapplibrary_tests_csproj",
+      "ext_provaapi_provaapi_provaapi_csproj",
+      "nuget_blazored_localstorage",
+      "nuget_microsoft_aspnetcore_components_webassembly",
+      "nuget_microsoft_aspnetcore_components_webassembly_devserver",
+      "nuget_mudblazor",
+      "nuget_mudblazor_thememanager",
+      "sdk_microsoft_net_sdk_blazorwebassembly"
+    ],
+    "31": [
+      "bloodpressureappwasm_imports",
+      "bloodpressureappwasm_imports_razor_bloodpressureapplibrary",
+      "bloodpressureappwasm_imports_razor_bloodpressureapplibrary_wasm",
+      "bloodpressureappwasm_imports_razor_bloodpressureappwasm",
+      "bloodpressureappwasm_imports_razor_microsoft_aspnetcore_components_authorization",
+      "bloodpressureappwasm_imports_razor_microsoft_aspnetcore_components_webassembly_http",
+      "bloodpressureappwasm_imports_razor_mudblazor",
+      "bloodpressureappwasm_imports_razor_system_net_http_json",
+      "bloodpressureappwasm_layout",
+      "microsoft_aspnetcore_components_forms",
+      "microsoft_aspnetcore_components_routing",
+      "microsoft_aspnetcore_components_web_virtualization"
+    ],
+    "32": [
+      "bloodpressureappwasm_repomix_output_bootstrap_framework",
+      "bloodpressureappwasm_repomix_output_css_variables_root",
+      "bloodpressureappwasm_repomix_output_grid_system",
+      "bloodpressureappwasm_repomix_output_responsive_breakpoints",
+      "bloodpressureappwasm_repomix_output_rfs_mixin",
+      "bloodpressureappwasm_repomix_output_rtl_support",
+      "bloodpressureappwasm_repomix_output_scss_variables",
+      "bloodpressureappwasm_repomix_output_spacing_system",
+      "bloodpressureappwasm_repomix_output_typography_system",
+      "bloodpressureappwasm_repomix_output_utilities_system",
+      "bloodpressureappwasm_repomix_output_utility_api",
+      "bloodpressureappwasm_repomix_output_zindex_stack"
+    ],
+    "33": [
+      "bootstrap_caret",
+      "bootstrap_dropdown",
+      "bootstrap_grid_breakpoint",
+      "bootstrap_grid_breakpoints_map",
+      "bootstrap_js_popper",
+      "bootstrap_mixin_breakpoint_infix",
+      "bootstrap_mixin_breakpoint_max",
+      "bootstrap_mixin_breakpoint_min",
+      "bootstrap_mixin_breakpoint_next",
+      "bootstrap_mixin_media_breakpoint_between",
+      "bootstrap_mixin_media_breakpoint_down",
+      "bootstrap_mixin_media_breakpoint_only"
+    ],
+    "34": [
+      "bloodpressureappwasm_layout_navmenu",
+      "bloodpressureappwasm_layout_navmenu_logout",
+      "bloodpressureappwasm_layout_navmenu_razor_authorized",
+      "bloodpressureappwasm_layout_navmenu_razor_authorizeview",
+      "bloodpressureappwasm_layout_navmenu_razor_mudbutton",
+      "bloodpressureappwasm_layout_navmenu_razor_notauthorized",
+      "ilocalstorageservice",
+      "mudnavlink",
+      "mudnavmenu",
+      "navigationmanager",
+      "productionauthstateprovider"
+    ],
+    "35": [
+      "blazored_localstorage",
+      "bloodpressureappwasm_services_pushnotificationservice",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscriptionkeys",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscriptionkeys_auth",
+      "bloodpressureappwasm_services_pushnotificationservice_bloodpressureappwasm_services_pushsubscriptionkeys_p256dh",
+      "bloodpressureappwasm_services_syncservice",
+      "csharp_namespace:d07ab7a2ed39ce03",
+      "microsoft_jsinterop",
+      "system_net_http_json",
+      "system_text_json"
+    ],
+    "36": [
+      "bloodpressureappwasm_repomix_output_accordion",
+      "bloodpressureappwasm_repomix_output_btn_close",
+      "bloodpressureappwasm_repomix_output_carousel",
+      "bloodpressureappwasm_repomix_output_carousel_dark",
+      "bloodpressureappwasm_repomix_output_clearfix",
+      "bloodpressureappwasm_repomix_output_color_mode",
+      "bloodpressureappwasm_repomix_output_container_max_widths",
+      "bloodpressureappwasm_repomix_output_deprecate",
+      "bloodpressureappwasm_repomix_output_escape_svg",
+      "bloodpressureappwasm_repomix_output_navbar"
+    ],
+    "37": [
+      "bloodpressureappwasm_repomix_output_backdrop",
+      "bloodpressureappwasm_repomix_output_config",
+      "bloodpressureappwasm_repomix_output_focustrap",
+      "bloodpressureappwasm_repomix_output_media_breakpoint_down",
+      "bloodpressureappwasm_repomix_output_modal",
+      "bloodpressureappwasm_repomix_output_offcanvas",
+      "bloodpressureappwasm_repomix_output_overlay_backdrop",
+      "bloodpressureappwasm_repomix_output_scrollbarhelper",
+      "bloodpressureappwasm_repomix_output_swipe",
+      "bloodpressureappwasm_repomix_output_templatefactory"
+    ],
+    "38": [
+      "bloodpressureappwasm_repomix_output_bootstrap_map",
+      "bloodpressureappwasm_repomix_output_bootstrap_rtl_css",
+      "bloodpressureappwasm_repomix_output_scss_accordion",
+      "bloodpressureappwasm_repomix_output_scss_buttons",
+      "bloodpressureappwasm_repomix_output_scss_card",
+      "bloodpressureappwasm_repomix_output_scss_grid",
+      "bloodpressureappwasm_repomix_output_scss_navbar",
+      "bloodpressureappwasm_repomix_output_scss_reboot",
+      "bloodpressureappwasm_repomix_output_scss_root",
+      "bloodpressureappwasm_repomix_output_scss_utilities"
+    ],
+    "39": [
+      "bloodpressureapplibrary_wasm",
+      "bloodpressureappwasm",
+      "bloodpressureappwasm_program",
+      "microsoft_aspnetcore_components_authorization",
+      "microsoft_aspnetcore_components_web",
+      "microsoft_aspnetcore_components_webassembly_hosting",
+      "microsoft_aspnetcore_components_webassembly_http",
+      "microsoft_extensions_configuration",
+      "mudblazor_services"
+    ],
+    "40": [
+      "bloodpressureappwasm_repomix_output_border_radius",
+      "bloodpressureappwasm_repomix_output_box_shadow",
+      "bloodpressureappwasm_repomix_output_card",
+      "bloodpressureappwasm_repomix_output_enable_rounded",
+      "bloodpressureappwasm_repomix_output_form_validation_state",
+      "bloodpressureappwasm_repomix_output_form_validation_state_selector",
+      "bloodpressureappwasm_repomix_output_form_validation_states",
+      "bloodpressureappwasm_repomix_output_input_group",
+      "bloodpressureappwasm_repomix_output_toast"
+    ],
+    "41": [
+      "bloodpressureappwasm_wwwroot_service_worker",
+      "bloodpressureappwasm_wwwroot_service_worker_checkduereminders",
+      "bloodpressureappwasm_wwwroot_service_worker_reschedulenotification",
+      "bloodpressureappwasm_wwwroot_service_worker_schedulelocalnotification",
+      "bloodpressureappwasm_wwwroot_service_worker_static_assets",
+      "bloodpressureappwasm_wwwroot_service_worker_subscribetopush",
+      "bloodpressureappwasm_wwwroot_service_worker_syncbloodpressure",
+      "bloodpressureappwasm_wwwroot_service_worker_synctherapies",
+      "bloodpressureappwasm_wwwroot_service_worker_urlbase64touint8array"
+    ],
+    "42": [
+      "bootstrap_class_col",
+      "bootstrap_grid_columns",
+      "bootstrap_grid_row_columns",
+      "bootstrap_mixin_make_col",
+      "bootstrap_mixin_make_col_auto",
+      "bootstrap_mixin_make_col_offset",
+      "bootstrap_mixin_make_grid_columns",
+      "bootstrap_mixin_row_cols",
+      "bootstrap_variables_gutters"
+    ],
+    "43": [
+      "bloodpressureappwasm_repomix_output_accessibility",
+      "bloodpressureappwasm_repomix_output_button_system",
+      "bloodpressureappwasm_repomix_output_component_architecture",
+      "bloodpressureappwasm_repomix_output_form_components",
+      "bloodpressureappwasm_repomix_output_nav_components",
+      "bloodpressureappwasm_repomix_output_overlay_components",
+      "bloodpressureappwasm_repomix_output_reduced_motion",
+      "bloodpressureappwasm_repomix_output_spinner_component"
+    ],
+    "44": [
+      "bloodpressureappwasm_services_reminderservice",
+      "bloodpressureappwasm_tests_obj_debug_net10_0_bloodpressureappwasm_tests_globalusings_g",
+      "system_collections_generic",
+      "system_io",
+      "system_linq",
+      "system_net_http",
+      "system_threading",
+      "system_threading_tasks"
+    ],
+    "45": [
+      "bloodpressureappwasm_tests_bloodpressureappwasm_tests",
+      "nuget_bunit",
+      "nuget_coverlet_collector",
+      "nuget_microsoft_net_test_sdk",
+      "nuget_moq",
+      "nuget_xunit",
+      "nuget_xunit_runner_visualstudio",
+      "sdk_microsoft_net_sdk"
+    ],
+    "46": [
+      "bootstrap_class_grid",
+      "bootstrap_list_group",
+      "bootstrap_media_breakpoint_down",
+      "bootstrap_mixin_make_cssgrid",
+      "bootstrap_mixin_media_breakpoint_up",
+      "bootstrap_modal",
+      "bootstrap_offcanvas",
+      "bootstrap_overlay_backdrop"
+    ],
+    "47": [
+      "bloodpressureappwasm_repomix_output_basecomponent",
+      "bloodpressureappwasm_repomix_output_button",
+      "bloodpressureappwasm_repomix_output_collapse",
+      "bloodpressureappwasm_repomix_output_eventhandler",
+      "bloodpressureappwasm_repomix_output_scrollspy",
+      "bloodpressureappwasm_repomix_output_selectorengine",
+      "bloodpressureappwasm_repomix_output_tab"
+    ],
+    "48": [
+      "bloodpressureappwasm_app",
+      "cascadingauthenticationstate",
+      "focusonnavigate",
+      "found",
+      "router",
+      "routeview"
+    ],
+    "49": [
+      "bloodpressureappwasm_repomix_output_alert",
+      "bloodpressureappwasm_repomix_output_btn_variant_loop",
+      "bloodpressureappwasm_repomix_output_button_outline_variant",
+      "bloodpressureappwasm_repomix_output_button_variant",
+      "bloodpressureappwasm_repomix_output_color_modes",
+      "bloodpressureappwasm_repomix_output_theme_colors"
+    ],
+    "50": [
+      "bloodpressureappwasm_repomix_output_divide",
+      "bloodpressureappwasm_repomix_output_font_size",
+      "bloodpressureappwasm_repomix_output_popover",
+      "bloodpressureappwasm_repomix_output_reset_text",
+      "bloodpressureappwasm_repomix_output_rfs",
+      "bloodpressureappwasm_repomix_output_tooltip"
+    ],
+    "51": [
+      "bloodpressureappwasm_wwwroot_favicon_png_image",
+      "bloodpressureappwasm_wwwroot_icon_192_png_image",
+      "bloodpressureappwasm_wwwroot_icon_192_svg_file",
+      "bloodpressureappwasm_wwwroot_icon_512_png_image",
+      "bloodpressureappwasm_wwwroot_icon_512_svg_file",
+      "bloodpressureappwasm_wwwroot_index_html_file"
+    ],
+    "52": [
+      "bootstrap_btn_outline_mixin",
+      "bootstrap_btn_variant_mixin",
+      "bootstrap_mixin_color_contrast",
+      "bootstrap_mixin_shade_tint",
+      "bootstrap_table_base",
+      "bootstrap_table_variant_mixin"
+    ],
+    "53": [
+      "bootstrap_btn",
+      "bootstrap_btn_group",
+      "bootstrap_button_size",
+      "bootstrap_button_variant",
+      "bootstrap_gradient_bg"
+    ],
+    "54": [
+      "env_var_unsplash_access_key",
+      "mcp",
+      "mcp_command_npx",
+      "mcp_mcp_server_unsplash",
+      "mcp_package_pipeworx_mcp_unsplash"
+    ],
+    "55": [
+      "bloodpressureappwasm_pages_weather",
+      "bloodpressureappwasm_pages_weather_oninitializedasync",
+      "bloodpressureappwasm_pages_weather_razor_pagetitle",
+      "httpclient"
+    ],
+    "56": [
+      "bloodpressureappwasm_tests_obj_debug_net10_0_bloodpressureappwasm_tests_assemblyinfo",
+      "bloodpressureappwasm_tests_obj_debug_net10_0_netcoreapp_version_v10_0_assemblyattributes",
+      "system",
+      "system_reflection"
+    ],
+    "57": [
+      "bootstrap_class_row",
+      "bootstrap_grid_gutter_width",
+      "bootstrap_mixin_make_col_ready",
+      "bootstrap_mixin_make_row"
+    ],
+    "58": [
+      "bloodpressureappwasm_pages_counter",
+      "bloodpressureappwasm_pages_counter_incrementcount",
+      "bloodpressureappwasm_pages_counter_razor_pagetitle"
+    ],
+    "59": [
+      "bloodpressureappwasm_wwwroot_js_push_notifications",
+      "bloodpressureappwasm_wwwroot_js_push_notifications_pushnotifications",
+      "bloodpressureappwasm_wwwroot_js_push_notifications_urlbase64touint8array"
+    ],
+    "60": [
+      "bloodpressureappwasm_repomix_output_if_function",
+      "bloodpressureappwasm_repomix_output_spinner"
+    ],
+    "61": [
+      "bloodpressureappwasm_wwwroot_js_notifications",
+      "bloodpressureappwasm_wwwroot_js_notifications_setremindernotification"
+    ],
+    "62": [
+      "bloodpressureappwasm_collapse"
+    ],
+    "63": [
+      "bloodpressureappwasm_config"
+    ],
+    "64": [
+      "bloodpressureappwasm_dom_manipulator"
+    ],
+    "65": [
+      "bloodpressureappwasm_focus_trap"
+    ],
+    "66": [
+      "bloodpressureappwasm_pages_notfound"
+    ],
+    "67": [
+      "bloodpressureappwasm_repomix-output_backdrop"
+    ],
+    "68": [
+      "bloodpressureappwasm_repomix-output_basecomponent"
+    ],
+    "69": [
+      "bloodpressureappwasm_repomix-output_computeautoplacement"
+    ],
+    "70": [
+      "bloodpressureappwasm_repomix-output_computeoffsets"
+    ],
+    "71": [
+      "bloodpressureappwasm_repomix-output_computestyles"
+    ],
+    "72": [
+      "bloodpressureappwasm_repomix-output_config"
+    ],
+    "73": [
+      "bloodpressureappwasm_repomix-output_createpopper"
+    ],
+    "74": [
+      "bloodpressureappwasm_repomix-output_debounce"
+    ],
+    "75": [
+      "bloodpressureappwasm_repomix-output_defaultmodifiers"
+    ],
+    "76": [
+      "bloodpressureappwasm_repomix-output_defaultmodifiersfull"
+    ],
+    "77": [
+      "bloodpressureappwasm_repomix-output_detectoverflow"
+    ],
+    "78": [
+      "bloodpressureappwasm_repomix-output_dropdown"
+    ],
+    "79": [
+      "bloodpressureappwasm_repomix-output_eventhandler"
+    ],
+    "80": [
+      "bloodpressureappwasm_repomix-output_eventlisteners"
+    ],
+    "81": [
+      "bloodpressureappwasm_repomix-output_file"
+    ],
+    "82": [
+      "bloodpressureappwasm_repomix-output_flip"
+    ],
+    "83": [
+      "bloodpressureappwasm_repomix-output_focustrap"
+    ],
+    "84": [
+      "bloodpressureappwasm_repomix-output_getaltaxis"
+    ],
+    "85": [
+      "bloodpressureappwasm_repomix-output_getclippingrect"
+    ],
+    "86": [
+      "bloodpressureappwasm_repomix-output_getcompositerect"
+    ],
+    "87": [
+      "bloodpressureappwasm_repomix-output_getdocumentrect"
+    ],
+    "88": [
+      "bloodpressureappwasm_repomix-output_getnodescroll"
+    ],
+    "89": [
+      "bloodpressureappwasm_repomix-output_getoppositeplacement"
+    ],
+    "90": [
+      "bloodpressureappwasm_repomix-output_getoppositevariationplacement"
+    ],
+    "91": [
+      "bloodpressureappwasm_repomix-output_getscrollparent"
+    ],
+    "92": [
+      "bloodpressureappwasm_repomix-output_getviewportrect"
+    ],
+    "93": [
+      "bloodpressureappwasm_repomix-output_getwindowscroll"
+    ],
+    "94": [
+      "bloodpressureappwasm_repomix-output_getwindowscrollbarx"
+    ],
+    "95": [
+      "bloodpressureappwasm_repomix-output_hide"
+    ],
+    "96": [
+      "bloodpressureappwasm_repomix-output_isscrollparent"
+    ],
+    "97": [
+      "bloodpressureappwasm_repomix-output_listscrollparents"
+    ],
+    "98": [
+      "bloodpressureappwasm_repomix-output_manipulator"
+    ],
+    "99": [
+      "bloodpressureappwasm_repomix-output_mergebyname"
+    ],
+    "100": [
+      "bloodpressureappwasm_repomix-output_modal"
+    ],
+    "101": [
+      "bloodpressureappwasm_repomix-output_offcanvas"
+    ],
+    "102": [
+      "bloodpressureappwasm_repomix-output_offset"
+    ],
+    "103": [
+      "bloodpressureappwasm_repomix-output_ordermodifiers"
+    ],
+    "104": [
+      "bloodpressureappwasm_repomix-output_popover"
+    ],
+    "105": [
+      "bloodpressureappwasm_repomix-output_popperjs"
+    ],
+    "106": [
+      "bloodpressureappwasm_repomix-output_popperoffsets"
+    ],
+    "107": [
+      "bloodpressureappwasm_repomix-output_preventoverflow"
+    ],
+    "108": [
+      "bloodpressureappwasm_repomix-output_recttoclientrect"
+    ],
+    "109": [
+      "bloodpressureappwasm_repomix-output_sanitizer"
+    ],
+    "110": [
+      "bloodpressureappwasm_repomix-output_scrollbarhelper"
+    ],
+    "111": [
+      "bloodpressureappwasm_repomix-output_scrollspy"
+    ],
+    "112": [
+      "bloodpressureappwasm_repomix-output_selectoreengine"
+    ],
+    "113": [
+      "bloodpressureappwasm_repomix-output_tab"
+    ],
+    "114": [
+      "bloodpressureappwasm_repomix-output_templatefactory"
+    ],
+    "115": [
+      "bloodpressureappwasm_repomix-output_toast"
+    ],
+    "116": [
+      "bloodpressureappwasm_repomix-output_tooltip"
+    ],
+    "117": [
+      "bloodpressureappwasm_repomix_output_badge"
+    ],
+    "118": [
+      "bloodpressureappwasm_repomix_output_bootstrap_manipulator"
+    ],
+    "119": [
+      "bloodpressureappwasm_repomix_output_bootstrap_selectoreengine"
+    ],
+    "120": [
+      "bloodpressureappwasm_repomix_output_breadcrumb"
+    ],
+    "121": [
+      "bloodpressureappwasm_repomix_output_breakpoint_next"
+    ],
+    "122": [
+      "bloodpressureappwasm_repomix_output_btn"
+    ],
+    "123": [
+      "bloodpressureappwasm_repomix_output_btn_group"
+    ],
+    "124": [
+      "bloodpressureappwasm_repomix_output_btn_link"
+    ],
+    "125": [
+      "bloodpressureappwasm_repomix_output_button_size"
+    ],
+    "126": [
+      "bloodpressureappwasm_repomix_output_components_close"
+    ],
+    "127": [
+      "bloodpressureappwasm_repomix_output_document"
+    ],
+    "128": [
+      "bloodpressureappwasm_repomix_output_enable_shadows"
+    ],
+    "129": [
+      "bloodpressureappwasm_repomix_output_enable_validation_icons"
+    ],
+    "130": [
+      "bloodpressureappwasm_repomix_output_file"
+    ],
+    "131": [
+      "bloodpressureappwasm_repomix_output_gradient_mixins"
+    ],
+    "132": [
+      "bloodpressureappwasm_repomix_output_md_doc"
+    ],
+    "133": [
+      "bloodpressureappwasm_repomix_output_nav"
+    ],
+    "134": [
+      "bloodpressureappwasm_repomix_output_scrollspy_component"
+    ],
+    "135": [
+      "bloodpressureappwasm_scroll_bar"
+    ],
+    "136": [
+      "bloodpressureappwasm_template_factory"
+    ],
+    "137": [
+      "bloodpressureappwasm_util_base_component"
+    ],
+    "138": [
+      "bloodpressureappwasm_util_carousel"
+    ],
+    "139": [
+      "bloodpressureappwasm_util_collapse"
+    ],
+    "140": [
+      "bloodpressureappwasm_util_config"
+    ],
+    "141": [
+      "bloodpressureappwasm_util_dropdown"
+    ],
+    "142": [
+      "bloodpressureappwasm_util_index"
+    ],
+    "143": [
+      "bloodpressureappwasm_util_offcanvas"
+    ],
+    "144": [
+      "bloodpressureappwasm_util_popover"
+    ],
+    "145": [
+      "bloodpressureappwasm_util_scrollspy"
+    ],
+    "146": [
+      "bloodpressureappwasm_util_selector_engine"
+    ],
+    "147": [
+      "bloodpressureappwasm_util_tab"
+    ],
+    "148": [
+      "bloodpressureappwasm_util_toast"
+    ],
+    "149": [
+      "bloodpressureappwasm_util_tooltip"
+    ],
+    "150": [
+      "bloodpressureappwasm_wwwroot_images_feature_charts_svg_file"
+    ],
+    "151": [
+      "bloodpressureappwasm_wwwroot_images_feature_export_svg_file"
+    ],
+    "152": [
+      "bloodpressureappwasm_wwwroot_images_feature_input_svg_file"
+    ],
+    "153": [
+      "bloodpressureappwasm_wwwroot_images_hero_bp_svg_file"
+    ],
+    "154": [
+      "bloodpressureappwasm_wwwroot_serviceworker"
+    ],
+    "155": [
+      "bootstrap_btn_size_mixin"
+    ],
+    "156": [
+      "bootstrap_enable_dark_mode"
+    ],
+    "157": [
+      "bootstrap_enable_reduced_motion"
+    ],
+    "158": [
+      "bootstrap_enable_rtl"
+    ],
+    "159": [
+      "bootstrap_form_label"
+    ],
+    "160": [
+      "bootstrap_grid_breakpoints_css"
+    ],
+    "161": [
+      "bootstrap_grid_enable_cssgrid"
+    ],
+    "162": [
+      "bootstrap_grid_enable_grid_classes"
+    ],
+    "163": [
+      "bootstrap_hstack_vstack"
+    ],
+    "164": [
+      "bootstrap_icon_link"
+    ],
+    "165": [
+      "bootstrap_make_col_ready"
+    ],
+    "166": [
+      "bootstrap_ratio"
+    ],
+    "167": [
+      "bootstrap_stretched_link"
+    ],
+    "168": [
+      "bootstrap_table_active"
+    ],
+    "169": [
+      "bootstrap_table_hover"
+    ],
+    "170": [
+      "bootstrap_table_responsive"
+    ],
+    "171": [
+      "bootstrap_table_striped"
+    ],
+    "172": [
+      "bootstrap_text_truncate"
+    ],
+    "173": [
+      "bootstrap_text_truncate_class"
+    ],
+    "174": [
+      "bootstrap_variables_spacers"
+    ],
+    "175": [
+      "bootstrap_variables_theme_colors"
+    ],
+    "176": [
+      "bootstrap_visually_hidden"
+    ],
+    "177": [
+      "bootstrap_visually_hidden_class"
+    ],
+    "178": [
+      "dom_event_handler"
+    ],
+    "179": [
+      "dom_selector_engine"
+    ],
+    "180": [
+      "util_sanitizer"
+    ]
+  },
+  "cohesion": {
+    "0": 0.05656565656565657,
+    "1": 0.07111756168359942,
+    "2": 0.05,
+    "3": 0.06477732793522267,
+    "4": 0.17496443812233287,
+    "5": 0.0766488413547237,
+    "6": 0.0625,
+    "7": 0.08735632183908046,
+    "8": 0.12315270935960591,
+    "9": 0.1,
+    "10": 0.09523809523809523,
+    "11": 0.09523809523809523,
+    "12": 0.10526315789473684,
+    "13": 0.2046783625730994,
+    "14": 0.1111111111111111,
+    "15": 0.11764705882352941,
+    "16": 0.1503267973856209,
+    "17": 0.16339869281045752,
+    "18": 0.11764705882352941,
+    "19": 0.1323529411764706,
+    "20": 0.14166666666666666,
+    "21": 0.17142857142857143,
+    "22": 0.14285714285714285,
+    "23": 0.14285714285714285,
+    "24": 0.18681318681318682,
+    "25": 0.15384615384615385,
+    "26": 0.16666666666666666,
+    "27": 0.19230769230769232,
+    "28": 0.16666666666666666,
+    "29": 0.2692307692307692,
+    "30": 0.18181818181818182,
+    "31": 0.16666666666666666,
+    "32": 0.3181818181818182,
+    "33": 0.19696969696969696,
+    "34": 0.18181818181818182,
+    "35": 0.2222222222222222,
+    "36": 0.26666666666666666,
+    "37": 0.26666666666666666,
+    "38": 0.2222222222222222,
+    "39": 0.2222222222222222,
+    "40": 0.2777777777777778,
+    "41": 0.25,
+    "42": 0.25,
+    "43": 0.35714285714285715,
+    "44": 0.32142857142857145,
+    "45": 0.25,
+    "46": 0.2857142857142857,
+    "47": 0.38095238095238093,
+    "48": 0.3333333333333333,
+    "49": 0.3333333333333333,
+    "50": 0.4666666666666667,
+    "51": 0.3333333333333333,
+    "52": 0.4,
+    "53": 0.5,
+    "54": 0.4,
+    "55": 0.5,
+    "56": 0.6666666666666666,
+    "57": 0.6666666666666666,
+    "58": 0.6666666666666666,
+    "59": 0.6666666666666666,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0,
+    "86": 1.0,
+    "87": 1.0,
+    "88": 1.0,
+    "89": 1.0,
+    "90": 1.0,
+    "91": 1.0,
+    "92": 1.0,
+    "93": 1.0,
+    "94": 1.0,
+    "95": 1.0,
+    "96": 1.0,
+    "97": 1.0,
+    "98": 1.0,
+    "99": 1.0,
+    "100": 1.0,
+    "101": 1.0,
+    "102": 1.0,
+    "103": 1.0,
+    "104": 1.0,
+    "105": 1.0,
+    "106": 1.0,
+    "107": 1.0,
+    "108": 1.0,
+    "109": 1.0,
+    "110": 1.0,
+    "111": 1.0,
+    "112": 1.0,
+    "113": 1.0,
+    "114": 1.0,
+    "115": 1.0,
+    "116": 1.0,
+    "117": 1.0,
+    "118": 1.0,
+    "119": 1.0,
+    "120": 1.0,
+    "121": 1.0,
+    "122": 1.0,
+    "123": 1.0,
+    "124": 1.0,
+    "125": 1.0,
+    "126": 1.0,
+    "127": 1.0,
+    "128": 1.0,
+    "129": 1.0,
+    "130": 1.0,
+    "131": 1.0,
+    "132": 1.0,
+    "133": 1.0,
+    "134": 1.0,
+    "135": 1.0,
+    "136": 1.0,
+    "137": 1.0,
+    "138": 1.0,
+    "139": 1.0,
+    "140": 1.0,
+    "141": 1.0,
+    "142": 1.0,
+    "143": 1.0,
+    "144": 1.0,
+    "145": 1.0,
+    "146": 1.0,
+    "147": 1.0,
+    "148": 1.0,
+    "149": 1.0,
+    "150": 1.0,
+    "151": 1.0,
+    "152": 1.0,
+    "153": 1.0,
+    "154": 1.0,
+    "155": 1.0,
+    "156": 1.0,
+    "157": 1.0,
+    "158": 1.0,
+    "159": 1.0,
+    "160": 1.0,
+    "161": 1.0,
+    "162": 1.0,
+    "163": 1.0,
+    "164": 1.0,
+    "165": 1.0,
+    "166": 1.0,
+    "167": 1.0,
+    "168": 1.0,
+    "169": 1.0,
+    "170": 1.0,
+    "171": 1.0,
+    "172": 1.0,
+    "173": 1.0,
+    "174": 1.0,
+    "175": 1.0,
+    "176": 1.0,
+    "177": 1.0,
+    "178": 1.0,
+    "179": 1.0,
+    "180": 1.0
+  },
+  "gods": [
+    {
+      "id": "bloodpressureappwasm_repomix_output_css_custom_properties",
+      "label": "CSS Custom Properties System",
+      "degree": 27
+    },
+    {
+      "id": "bootstrap_mixin_border_radius",
+      "label": "border-radius Mixins",
+      "degree": 23
+    },
+    {
+      "id": "bootstrap_rtl_css_custom_properties",
+      "label": "CSS Custom Properties (Design Tokens)",
+      "degree": 22
+    },
+    {
+      "id": "bloodpressureappwasm_repomix_output",
+      "label": "Repomix Output",
+      "degree": 19
+    },
+    {
+      "id": "bootstrap_transition",
+      "label": "transition mixin",
+      "degree": 19
+    },
+    {
+      "id": "concept_utility_generator",
+      "label": "Utility Generator Pattern",
+      "degree": 16
+    },
+    {
+      "id": "bloodpressureappwasm_repomix_output_variables_colors",
+      "label": "Bootstrap Color Variables",
+      "degree": 16
+    },
+    {
+      "id": "bootstrap_mixin_transition",
+      "label": "transition Mixin",
+      "degree": 15
+    },
+    {
+      "id": "bloodpressureappwasm_repomix_output_bootstrap_basecomponent",
+      "label": "BaseComponent",
+      "degree": 15
+    },
+    {
+      "id": "bloodpressureappwasm_repomix_output_mixins_border_radius",
+      "label": "Border Radius Mixins",
+      "degree": 14
+    }
+  ],
+  "surprises": [
+    {
+      "source": "RFS Responsive Font Sizing",
+      "target": "Utilities API",
+      "source_files": [
+        "BloodPressureAppWasm/repomix-output.md",
+        "BloodPressureAppWasm/repomix-output.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "note": "Bridges community 1 \u2192 community 17"
+    },
+    {
+      "source": "CSS Custom Properties System",
+      "target": "Bootstrap SCSS Variables",
+      "source_files": [
+        "BloodPressureAppWasm/repomix-output.md",
+        "BloodPressureAppWasm/repomix-output.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "note": "Bridges community 12 \u2192 community 27"
+    },
+    {
+      "source": "Border Radius Mixins",
+      "target": "Bootstrap Utility Classes",
+      "source_files": [
+        "BloodPressureAppWasm/repomix-output.md",
+        "BloodPressureAppWasm/repomix-output.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "note": "Bridges community 26 \u2192 community 27"
+    },
+    {
+      "source": "Utility API Generator",
+      "target": "Bootstrap Utility Classes",
+      "source_files": [
+        "BloodPressureAppWasm/repomix-output.md",
+        "BloodPressureAppWasm/repomix-output.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "implements",
+      "note": "Bridges community 26 \u2192 community 32"
+    },
+    {
+      "source": "Overlay Components",
+      "target": "Responsive Breakpoint System",
+      "source_files": [
+        "BloodPressureAppWasm/repomix-output.md",
+        "BloodPressureAppWasm/repomix-output.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "note": "Bridges community 32 \u2192 community 43"
+    }
+  ],
+  "tokens": {
+    "input": 3500889,
+    "output": 183724
+  }
+}
