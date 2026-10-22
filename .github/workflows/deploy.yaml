@@ -1,0 +1,36 @@
+name: Deploy to Linux Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore Dependencies
+        run: dotnet restore BloodPressureAppWasm/BloodPressureAppWasm.csproj
+
+      - name: Build Application
+        run: dotnet build BloodPressureAppWasm/BloodPressureAppWasm.csproj --configuration Release --no-restore
+
+      - name: Publish Application
+        run: dotnet publish BloodPressureAppWasm/BloodPressureAppWasm.csproj -c Release -o /media/external32/BloodPressureAppWasm/publish/wwwroot --no-self-contained
+
+      - name: Copy Service Worker
+        run: cp BloodPressureAppWasm/wwwroot/service-worker.published.js /media/external32/BloodPressureAppWasm/publish/wwwroot/service-worker.js
+
+      - name: Set Nginx Permissions
+        run: |
+          chmod -R 755 /media/external32/BloodPressureAppWasm/publish/wwwroot
+          chown -R www-data:www-data /media/external32/BloodPressureAppWasm/publish/wwwroot
